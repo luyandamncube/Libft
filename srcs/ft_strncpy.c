@@ -6,19 +6,25 @@
  * https://github.com/luyandamncube
  **************************************************/
 
-char	*ft_strncpy(char *dst, const int nb, char *src)
+char	*ft_strncpy(char *dst, , char *src, const int n)
 {
+	 /*man page req:
+        -size-bounded string copying
+        -error filled way to copy a string
+        -if size > 0, null-terminate
+    */
 	int k;
 
 	k = 0;
-	if (nb > 0)
+	if (n > 0)
 	{
-		while (k < nb)
+		while (k < n)
 		{
 			dst[k] = src[k];
 			k++;
 		}
+		dst[k] = '\0';
 	}
-	dst[k] = '\0';
-	return (des);
+	
+	return (dst);
 }
