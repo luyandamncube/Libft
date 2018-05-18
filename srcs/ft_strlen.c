@@ -5,10 +5,17 @@
  * Created By :		lmncube
  * https://github.com/luyandamncube
  **************************************************/
+#include <libft.h>
 
-int	ft_strlen(char *str)
+size_t		ft_strlen(const char *s)
 {
-	int k;
+	/*man page req:
+		-you read this incorrectly :(
+		-calculates length of string excluding null-terminator
+		-returns number of BYTES in the string s
+		
+	*/
+	size_t k;
 
 	k = 0;
 	while (*str++)

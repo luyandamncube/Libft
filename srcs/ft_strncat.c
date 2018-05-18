@@ -1,3 +1,4 @@
+#include <libft.h>
 #include <string.h>
 
 int	ft_strlen(char *str)
@@ -15,6 +16,7 @@ char *ft_strncat(char *dst, char *src, size_t n)
     /*man page req:
         -string n concatenate
         -similar to strcat, although does not need to be null terminated if has n or more bytes
+        -if at least least one byte is free in dest (k < n i think), null-terminate
         NOTE: Check if you should be using size_t for this ._." )
         NOTE: size_t stores size of data objects in C
     */

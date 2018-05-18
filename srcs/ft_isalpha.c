@@ -1,3 +1,5 @@
+#include <libft.h>
+
 int     ft_isalpha(int c)
 {
     //Needs to be isupper||islower

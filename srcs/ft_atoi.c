@@ -5,6 +5,7 @@
  * Created By :		lmncube
  * https://github.com/luyandamncube
  **************************************************/
+#include <libft.h>
 
 int	ft_atoi(char  *str)
 {

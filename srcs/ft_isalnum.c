@@ -1,3 +1,5 @@
+#include <libft.h>
+
 int     ft_isalnum(int c)
 {
     //Needs to be isalpha||isdigit

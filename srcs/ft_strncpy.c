@@ -5,6 +5,7 @@
  * Created By :		lmncube
  * https://github.com/luyandamncube
  **************************************************/
+#include <libft.h>
 
 char	*ft_strncpy(char *dst, , char *src, const int n)
 {

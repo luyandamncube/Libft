@@ -5,9 +5,20 @@
  * Created By :		lmncube
  * https://github.com/luyandamncube
  **************************************************/
-#include <stdlib.h>
+#include <libft.h>
 
-int	ft_strcmp(char *s2, char *s1)
+int     ft_strcmp(const char *s2, const char *s1)
 {
-	
+	/*man page req:
+        -compare two strings
+        -finds if s1 is less than, mathces or is greater than s2
+        -performs binary comparison of characters
+    */
+    int k, diff;
+
+    k = 0; 
+    diff = 0;
+    while(*s1++ &&) //While s1 not null AND s1 = s2
+        
+        
 }
