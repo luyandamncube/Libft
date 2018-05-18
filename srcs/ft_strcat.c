@@ -1,16 +1,6 @@
 #include <libft.h>
 #include <string.h>
 
-size_t		ft_strlen(const char *s)
-{
-	size_t k;
-
-	k = 0;
-	while (*str++)
-		k++;
-	return (k);
-}
-
 char *ft_strcat(char *dst, char *src)
 {
     /*man page req:
@@ -25,9 +15,10 @@ char *ft_strcat(char *dst, char *src)
     size_t dst_len;
     size_t k;
 
+    dst_len = ft_strlen(dst);
     k = 0;
     while (*src++) //while not NULL
 		dst[dst_len + k] = src[dst_len + k];
-    dest[dst_len + k] = '\0';
+    dst[dst_len + k] = '\0';
     return (dst);
 }

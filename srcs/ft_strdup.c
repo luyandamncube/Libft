@@ -1,22 +1,30 @@
 #include <libft.h>
 #include <stdlib.h>
 
-size_t		ft_strlen(const char *s)
+char    *ft_strdup(const char *s)
 {
-	size_t k;
-
-	k = 0;
-	while (*str++)
-		k++;
-	return (k);
-}
-
-char *strdup(const char *s)
-{
-    int len;
+    /*man page req:
+        -return ptr to string which is a duplicate of string s
+        -memory for new string is obtained with "malloc", freed with "free"
+        -delimit with null-terminator
+        -return NULL if no space was allocated
+    */
+    size_t len;
     char *str;
+    int k;
+
     len = ft_strlen(s);
-    str = (char*)malloc(len);
-    str = s;
+    k = 0;
+    //+1 for null-terminator
+    str = (char*)malloc(sizeof(char)*len+1);
+    if (!str)
+        return (NULL) //return NULL if no space was allocated
+    while (*s++) //while not null
+    {
+        str[k] = s[k];
+        k++;
+    }
+    str[k] = '\0'; 
+    free(str);
     return (str);
 }

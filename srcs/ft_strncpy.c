@@ -13,8 +13,9 @@ char	*ft_strncpy(char *dst, , char *src, const int n)
         -size-bounded string copying
         -error filled way to copy a string
         -if size > 0, null-terminate
+		NOTE: ANY time we have a whole number as a parameter, make sure to check if you should use unsigned
     */
-	int k;
+	unsigned int k;
 
 	k = 0;
 	if (n > 0)

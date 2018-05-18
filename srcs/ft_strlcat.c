@@ -1,16 +1,6 @@
 #include <libft.h>
 #include <string.h>
 
-size_t		ft_strlen(const char *s)
-{
-	size_t k;
-
-	k = 0;
-	while (*str++)
-		k++;
-	return (k);
-}
-
 char *ft_strlcat(char *dst, char *src, size_t size)
 {
     /*man page req:

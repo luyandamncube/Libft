@@ -7,22 +7,27 @@
  **************************************************/
 #include <libft.h>
 
-int	ft_atoi(char  *str)
+int	ft_atoi(const char  *nptr)
 {
+	/*man page req:
+		-*nptr is the same as nullptr from C++
+		-convert string to an integer (ascii to int)
+		-atoi does not detect errors
+	*/
 	int sign;
 	int k;
 
 	sign = 1;
 	k = 0;
 	//Skip Escape Characters, 32 is space, 9-13 are the escape characters
-	while ((*str) || (*str >= 9 && *str <= 13 ))
-		++str;
+	while ((*nptr) || (*nptr >= 9 && *nptr <= 13 ))
+		++nptr;
 	//Sign of integer expression
-	if (*str == '+' || *str == '-')
-		sign = (*str++ == '-'  ? -1 : 1);
+	if (*nptr == '+' || *nptr == '-')
+		sign = (*nptr++ == '-'  ? -1 : 1);
 	//Is string to int conversion algorithm 
-	while (*str >= '0' && *str <= '9')
-		k = k*10 + (*str++ - '0');
+	while (*nptr >= '0' && *nptr <= '9')
+		k = k*10 + (*nptr++ - '0');
 
 	return (k*sign);
 }

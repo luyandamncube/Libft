@@ -13,12 +13,18 @@ int     ft_strcmp(const char *s2, const char *s1)
         -compare two strings
         -finds if s1 is less than, mathces or is greater than s2
         -performs binary comparison of characters
+        NOTE:
+            >Theoretically you could have then negetive integers as paramaters
+            >remember that char is INTEGER. it's just the smallest integer type. 
+            >e.g. 0xFF and FF are the same. as a char it is -1 but unsigned it is 255
+            >"values in memory may be the same although the bits used to represent them might differ"
+            >ANY time we subtract/add integers, make sure to check if you should use unsigned
     */
-    int k, diff;
+    int k;
 
     k = 0; 
-    diff = 0;
-    while(*s1++ &&) //While s1 not null AND s1 = s2
-        
+    while(*s1++ && s1[k] == s2[k]) //While s1 not null AND s1 = s2 (char are the same)
+        k++;
+    return(s1[k]-s2[k]);
         
 }
