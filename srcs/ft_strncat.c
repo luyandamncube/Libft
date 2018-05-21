@@ -9,14 +9,25 @@ char *ft_strncat(char *dst, char *src, size_t n)
         -if at least least one byte is free in dest (k < n i think), null-terminate
         NOTE: Check if you should be using size_t for this ._." )
         NOTE: size_t stores size of data objects in C
+        NOTE: size_t is actuALLY an unsigned int
     */
-    size_t dst_len;
-    size_t k;
+
+   //Lengths should be POSITIVE, thus unsigned is warranted
+    unsigned int dst_len;
+    unsigned int k,m;
 
     k = 0;
+    m = 0;
     dst_len = ft_strlen(dst);
+    while (*dst++)
+        m++;
     while (*src++ && k < n) //while not NULL
-		dst[dst_len + k] = src[dst_len + k];
-    dst[dst_len + k] = '\0';
+    {
+        dst[m] = src[k];
+        k++;
+        m++;
+    }
+		
+    dst[m] = '\0';
     return (dst);
 }
