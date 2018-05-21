@@ -1,6 +1,6 @@
 #include <libft.h>
 
-char *ft_strstr(const char *haystack, const char *needle)
+char    *ft_strstr(const char *haystack, const char *needle)
 {
     /* man page req:
         -locate a substring
@@ -8,26 +8,15 @@ char *ft_strstr(const char *haystack, const char *needle)
         -return haystack if needle == ''
         -return NULL if needle does not occur
     */
+
+    size_t k;
+    size_t needle_len;
+
+    k = 0;
+    needle_len = ft_strlen(needle);
+    
     while (*haystack++)
     {
-        int i = 0;
-        int a1[127] = {0};
-        int a2[127] = {0};
         
-        while (s1[i])
-            a1[s1[i++]]++;
-        i = 0;
-        while (s2[i])
-            a2[s2[i++]]++;
-        i = 0;
-        while (i < ft_strlen(s1))
-        {
-            if (a1[s1[i]] <= a2[s1[i]])
-                i++;
-            else
-                break;
-        }
-        if (i == ft_strlen(s1))
-            write(1, s1, ft_strlen(s1));
     }
 }
