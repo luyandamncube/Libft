@@ -1,7 +1,7 @@
 #include <libft.h>
 #include <string.h>
 
-size_t  strlcat(char *dst, const char *src, size_t size)
+size_t  ft_strlcat(char *dst, const char *src, size_t size)
 {
     /* man page req:
         -size-bounded string concatenation
@@ -12,10 +12,11 @@ size_t  strlcat(char *dst, const char *src, size_t size)
     */
     
     //Lengths should be POSITIVE, thus unsigned is warranted
-    unsigned int dst_len;
+    unsigned int dst_len, src_len;
     unsigned int k,m;
 
     k = 0;
+    //Use sizeof here instead, checks full size of structure not limited to nul-terminator
     src_len = ft_strlen(src);
     dst_len = ft_strlen(dst);
     m = dst_len;

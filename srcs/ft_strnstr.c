@@ -1,6 +1,6 @@
 #include <libft.h>
 
-char    *ft_strstr(const char *haystack, const char *needle)
+char    *ft_strnstr(const char *haystack, const char *needle, size_t len);
 {
     /* man page req:
         -locate a substring
@@ -26,7 +26,7 @@ char    *ft_strstr(const char *haystack, const char *needle)
 
     while (haystack[k] != '\0')
     {
-        while (needle[m] != '\0')
+        while (needle[m] < size)
         {
             if (haystack[k] == needle[m])
                 checker++;
@@ -35,6 +35,6 @@ char    *ft_strstr(const char *haystack, const char *needle)
 
         k++;
     }
-    if (checker == needle_len)
+    if (checker == size)
         return (needle);
 }
