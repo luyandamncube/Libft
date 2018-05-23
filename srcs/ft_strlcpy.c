@@ -1,7 +1,7 @@
-#include <libft.h>
+#include "libft.h"
 #include <string.h>
 
-char *ft_strlcpy(char *dst, char *src, size_t size)
+char 	*ft_strlcpy(char *dst, char *src, size_t size)
 {
     /*man page req:
         -size-bounded string copying
@@ -22,6 +22,5 @@ char *ft_strlcpy(char *dst, char *src, size_t size)
 		}
         dst[k] = '\0';
 	}
-
 	return (dst);
 }

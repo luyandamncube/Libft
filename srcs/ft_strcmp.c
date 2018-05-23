@@ -5,7 +5,7 @@
  * Created By :		lmncube
  * https://github.com/luyandamncube
  **************************************************/
-#include <libft.h>
+#include "libft.h"
 
 int     ft_strcmp(const char *s2, const char *s1)
 {

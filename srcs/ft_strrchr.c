@@ -1,4 +1,4 @@
-#include <libft.h>
+#include "libft.h"
 
 char    *ft_strchr(const char *s, int c)
 {
@@ -9,7 +9,7 @@ char    *ft_strchr(const char *s, int c)
               
     */
     int k, m,flag, len;
-    char str_new;
+    char *str_new;
    
     k = 0;
     m = 0;

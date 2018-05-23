@@ -1,7 +1,7 @@
-#include <libft.h>
+#include "libft.h"
 #include <string.h>
 
-char *ft_strcat(char *dst, char *src)
+char    *ft_strcat(char *dst, char *src)
 {
     /*man page req:
         -string concatenate

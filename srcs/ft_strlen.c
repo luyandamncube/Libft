@@ -5,7 +5,7 @@
  * Created By :		lmncube
  * https://github.com/luyandamncube
  **************************************************/
-#include <libft.h>
+#include "libft.h"
 
 size_t		ft_strlen(const char *s)
 {
@@ -18,7 +18,7 @@ size_t		ft_strlen(const char *s)
 	size_t k;
 
 	k = 0;
-	while (*str++)
+	while (*s++)
 		k++;
 	return (k);
 }

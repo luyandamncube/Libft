@@ -1,4 +1,4 @@
-#include <libft.h>
+#include "libft.h"
 #include <stdlib.h>
 
 char    *ft_strdup(const char *s)
@@ -18,7 +18,7 @@ char    *ft_strdup(const char *s)
     //+1 for null-terminator
     str = (char*)malloc(sizeof(char)*len+1);
     if (!str)
-        return (NULL) //return NULL if no space was allocated
+        return (NULL); //return NULL if no space was allocated
     while (*s++) //while not null
     {
         str[k] = s[k];
