@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <string.h>
 
 int     ft_strncmp(const char *s2, const char *s1, size_t n)
 {

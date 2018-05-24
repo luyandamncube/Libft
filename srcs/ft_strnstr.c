@@ -36,5 +36,7 @@ char    *ft_strnstr(const char *haystack, const char *needle, size_t len)
         k++;
     }
     if (checker == len)
-        return (needle);
+        return (const char*)(needle);
+    else 
+        return (NULL);
 }

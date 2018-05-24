@@ -1,0 +1,53 @@
+gcc main.c -I ../includes 
+
+NAME = 			libft.a
+FILENAMES = 		ft_ultoa \
+			ft_strcmp \
+			ft_strncmp \
+			ft_atoi \
+			ft_isalpha \
+			ft_isdigit \
+			ft_isalnum \
+			ft_isascii \
+			ft_isprint \
+			ft_toupper \
+			ft_tolower \
+			ft_itoa \
+			ft_strsplit \
+			ft_strtrim \
+			ft_strjoin \
+			ft_strsub \
+			ft_strmapi \
+			ft_strequ \
+			ft_strnequ \
+			ft_strclr \
+			ft_striter \
+			ft_striteri \
+			ft_strmap \
+			ft_strdel \
+			ft_strnew \
+			ft_memdel \
+			ft_memalloc \
+			ft_lstmap \
+			ft_lstiter \
+			ft_lstadd \
+			ft_lstnew \
+			ft_lstdelone \
+			ft_lstdel \
+			ft_uitoa_base
+CC =			gcc
+
+CFLAGS = 		-Wall -Werror -Wextra
+HFLAGS =		-I$(HDIR)
+AFLAGS =		ar rcs
+
+HDIR =			.../includes
+ODIR =			obj
+SDIR = 			srcs
+
+_DEPS =			libft.h
+
+all: $(NAME)
+run:
+	@echo 		Running program excecutable...
+	@./test
