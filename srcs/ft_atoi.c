@@ -19,6 +19,7 @@ int	ft_atoi(const char  *nptr)
 
 	sign = 1;
 	k = 0;
+	
 	//Skip Escape Characters, 32 is space, 9-13 are the escape characters
 	while ((*nptr) || (*nptr >= 9 && *nptr <= 13 ))
 		++nptr;
@@ -28,6 +29,5 @@ int	ft_atoi(const char  *nptr)
 	//Is string to int conversion algorithm 
 	while (*nptr >= '0' && *nptr <= '9')
 		k = k*10 + (*nptr++ - '0');
-
 	return (k*sign);
 }

@@ -11,7 +11,6 @@ char    *ft_strncat(char *dst, char *src, size_t n)
     */
 
    //Lengths should be POSITIVE, thus unsigned is warranted
-    unsigned int dst_len;
     unsigned int k,m;
 
     k = 0;

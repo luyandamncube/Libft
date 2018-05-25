@@ -90,7 +90,7 @@ CFLAGS = 			-Wall -Werror -Wextra
 HFLAGS =			-I$(HDIR)
 AFLAGS =			ar rcs
 
-HDIR =				./includes
+HDIR =				../includes
 ODIR =				obj
 SDIR = 				srcs
 

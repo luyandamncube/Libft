@@ -1,6 +1,6 @@
 #include "libft.h"
 
-char    *ft_strchr(const char *s, int c)
+char    *ft_strrchr(const char *s, int c)
 {
     /* man page req:
         -locate char in string
@@ -29,7 +29,7 @@ char    *ft_strchr(const char *s, int c)
     if (flag == 1) // if found
     {
         //len = ft_strlen(s)-k;
-        str_new = (char*)malloc(sizeof(char)*len+1);
+        str_new = (char*)malloc(sizeof(char*)*len+1);
         while (k < len)
         {
             str_new[m] = s[k];
@@ -38,4 +38,7 @@ char    *ft_strchr(const char *s, int c)
         }
         str_new[m] = '\0';
     }
+    else
+        str_new = NULL;
+    return (str_new);
 }

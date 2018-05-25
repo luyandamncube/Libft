@@ -9,7 +9,7 @@ char    *ft_strchr(const char *s, int c)
         
     */
     int k, m,flag, len;
-    char str_new;
+    char *str_new;
    
     k = 0;
     m = 0;
@@ -33,4 +33,7 @@ char    *ft_strchr(const char *s, int c)
         }
         str_new[m] = '\0';
     }
+    else
+        str_new = NULL;
+    return (str_new);
 }

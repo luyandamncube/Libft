@@ -15,12 +15,13 @@ char	*ft_strncpy(char *dst, char *src, const int n)
         -if size > 0, null-terminate
 		NOTE: ANY time we have a whole number as a parameter, make sure to check if you should use unsigned
     */
-	unsigned int k;
+	unsigned int k, m;
 
 	k = 0;
-	if (n > 0)
+	m = n;
+	if (m > 0)
 	{
-		while (k < n)
+		while (k < m)
 		{
 			dst[k] = src[k];
 			k++;
