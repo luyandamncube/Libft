@@ -1,29 +1,46 @@
 /*
-    Usage: 
+    USAGE: 
     1   sh test.sh
     2   ./test ft_name.c
 */
 #include "libft.h"
 
+#define KILOBYTE (1024llu)
+#define MEGABYTE (KILOBYTE * KILOBYTE)
+#define GIGABYTE (KILOBYTE * KILOBYTE * KILOBYTE)
+
+/* 
+    ARRAYS FOR COMPARTIVE TESTS
+    -Allows iterative input for function comparisons
+    USAGE: ft_strleny(str[k]);
+ */
 int num[9] = {1,0,2147483647, -2147483648, 1024, 42, -42, 9999};
-char chr[20          ] = {'a','A','z','Z','\0',' ','\v','\n','\r','\t','\b','%', 'a' + 0x100, '0', '1', '2','%','\t','\n','\b'};
+char chr[20] = {
+                'a','A','z','Z','\0',' ','\v','\n','\r','\t','\b',
+                '%', 'a' + 0x100, '0', '1', '2','%','\t','\n','\b'
+                };
 char *str[15] = {
-                    "abcdefghijklmnopqrstuvwxyz","b\0ab","aa\n", "42", "    -45", "56070707", "56 5  wd 56", 
-                    "01-156-12302147483647-21474838","***sup****!**", "abc\0\0\0",
-                    "aaa\0aaa", "\0\0\0\0\0\0","\t\t\n\t\t   ","\t\n  \tAAA \t BBB\t\n  \t"
+                    "abcdefghijklmnopqrstuvwxyz","b\0ab","aa\n", "42", 
+                    "    -45", "56070707", "56 5  wd 56","01-156-12302147483647-21474838",
+                    "***sup****!**", "abc\0\0\0", "aaa\0aaa", "\0\0\0\0\0\0","\t\t\n\t\t   ",
+                    "\t\n  \tAAA \t BBB\t\n  \t"
                 };
 char *str2[15] = {
-                    "abcdefghijklmnopqrstuvwxyz","b\0a","ba\n", "4", "    -65", "560", "56 5  wd 56", 
-                    "01-156-12334147483647-21474838","***sup****!**", "abc\0\0\0",
-                    "aaa\0aaa", "\0\0\0\0\0\0","\t\t\n\t\t   ","\t\n  \tABA \t BBB\t\n  \t"
+                    "abcdefghijklmnopqrstuvwxyz","b\0a","ba\n", "4", 
+                    "    -65", "560", "56 5  wd 56", "01-156-12334147483647-21474838",
+                    "***sup****!**", "abc\0\0\0", "aaa\0aaa", "nbs\0\0\0","\t\t\n\t\t   ",
+                    "\t\n  \tABA \t BBB\t\n  \t"
                 };
 
 char *asc[32] = {
-                    " -sfecf", "", "+2798", "+0089", "a56", "      --s8" , "0001020304","000000000000000110", "-153",
-                    "+132", "++876", "--132", "wert ", " 1", "42jk ", " 21", "     32 ", "\n          42 24", "1-2", 
-                     "4+2", "  +442", "  -4232", "4,5", "+", "-", "-+1", "+-1", "\200123", "123\200", "  \t\n  \r\r\v\f-899",
+                    " -sfecf", "", "+2798", "+0089", "a56", "      --s8" , "0001020304",
+                    "000000000000000110", "-153",
+                    "+132", "++876", "--132", "wert ", " 1", "42jk ", " 21", "     32 ",
+                     "\n          42 24", "1-2", "4+2", "  +442", "  -4232", "4,5", "+",
+                      "-", "-+1", "+-1", "\200123", "123\200", "  \t\n  \r\r\v\f-899",
                      "-2147483648", "2147483647"
                 };
+
 /* strlcat(strdup("abc\0\0\0"), "ccc", 0) == 3
     strlcat(strdup("abc\0\0\0"), "ccc", 1) == 4
     strlcat(strdup("abc\0\0\0"), "ccc", 6) == 6
@@ -36,7 +53,7 @@ char 	*ext_remove(char* mystr)
     char *lastdot;
     if (mystr == NULL)
          return NULL;
-    if ((retstr = malloc (strlen (mystr) + 1)) == NULL)
+    if ((retstr = malloc(strlen (mystr) + 1)) == NULL)
         return NULL;
     strcpy (retstr, mystr);
     lastdot = strrchr (retstr, '.');
@@ -47,7 +64,19 @@ char 	*ext_remove(char* mystr)
 
 int main(int argc, char **argv)
 {   
-    int test_1 =0;
+    /* 
+    MEMORY ALLOCATION AREAS FOR SRC_DST TESTS
+    -Fills memory area src with the character 'A'
+    USAGE: ft_strcpy(dst, src);
+    NOTE: allocate memory in main function, in C it becomes unstable if allocated globally 
+ */
+    size_t	size = MEGABYTE * 64;
+    char	*src = (size_t)malloc(size + 1);
+    char	*dst = (size_t)malloc(size + 1);
+    src[size] = 0;
+    memset(src, 'A', size);
+
+    int test_1 = 0;
     int test_2 = 0;
     int pass_counter = 0;
     char *ft_name = (argv[1]);    
@@ -57,16 +86,16 @@ int main(int argc, char **argv)
     if (argc == 2)
     {
         //Change fail count to match no of tests
-        while (test_1 < 14)
+        while (test_1 < 15)
         {
-            if (strcmp(str[test_1], str2[test_1]) == ft_strcmp(str[test_1], str2[test_1]))
+            if (strcpy(dst[test_1], src[test_1]) == ft_strcpy(dst[test_1], src[test_1]))
             {
                 printf("PASS:  test %d\n", test_1+1);
                 pass_counter++;
             }
             else
             {
-				printf("FAIL: Output %d , %d\n", strcmp(str[test_1], str2[test_1]) , ft_strcmp(str[test_1], str2[test_1]));
+				printf("FAIL: Output %d , %d\n", strcpy(dst[test_1], src[test_1]) , ft_strcpy(dst[test_1], src[test_1]));
             }
                 
             test_1++;

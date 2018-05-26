@@ -25,8 +25,10 @@ int     ft_strcmp(const char *s2, const char *s1)
     k = 0;
     while(s1[k]) //While s1 not null AND s1 = s2 (char are the same)
     {
-        if (s1[k] != s2[k])
-            return(s2[k]-s1[k]);
+        if (s1[k] > s2[k])
+            return(-1);
+        if (s1[k] < s2[k])
+            return(1);            
         k++;
     }    
     return(s2[k]-s1[k]);

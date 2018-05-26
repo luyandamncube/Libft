@@ -12,7 +12,7 @@ char	*ft_strcpy(char *dst, char *src)
 	int k;
 
 	k = 0;
-	while (*src)
+	while (src[k])
 	{
 		dst[k] = src[k];
 		k++;

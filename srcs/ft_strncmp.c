@@ -11,7 +11,13 @@ int     ft_strncmp(const char *s2, const char *s1, size_t n)
     size_t k;
 
     k = 0; 
-    while(*s1++ && s1[k] == s2[k] && k < n) 
+    while((s1[k]) && (s2[k]) && (s1[k] == s2[k]) && (k < n)) 
+    {
+        if (s1[k] > s2[k])
+            return(1);
+        if (s1[k] < s2[k])
+            return(-1);            
         k++;
-    return(s1[k]-s2[k]);       
+    }
+    return(s2[k]-s1[k]);       
 }
