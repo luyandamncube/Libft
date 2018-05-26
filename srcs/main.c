@@ -13,10 +13,11 @@ char *str[15] = {
                     "aaa\0aaa", "\0\0\0\0\0\0","\t\t\n\t\t   ","\t\n  \tAAA \t BBB\t\n  \t"
                 };
 char *str2[15] = {
-                    "abcdefghijklmtypqrstuvwxyz","b\0ab","ba\n", "41", "    -45", "56070707", "56 5  wd 56", 
+                    "abcdefghijklmnopqrstuvwxyz","b\0a","ba\n", "4", "    -65", "560", "56 5  wd 56", 
                     "01-156-12334147483647-21474838","***sup****!**", "abc\0\0\0",
                     "aaa\0aaa", "\0\0\0\0\0\0","\t\t\n\t\t   ","\t\n  \tABA \t BBB\t\n  \t"
                 };
+
 char *asc[32] = {
                     " -sfecf", "", "+2798", "+0089", "a56", "      --s8" , "0001020304","000000000000000110", "-153",
                     "+132", "++876", "--132", "wert ", " 1", "42jk ", " 21", "     32 ", "\n          42 24", "1-2", 
@@ -46,7 +47,8 @@ char 	*ext_remove(char* mystr)
 
 int main(int argc, char **argv)
 {   
-    int test_1, test_2 = 0;
+    int test_1 =0;
+    int test_2 = 0;
     int pass_counter = 0;
     char *ft_name = (argv[1]);    
                                                                                                                                                                                                 
@@ -55,36 +57,36 @@ int main(int argc, char **argv)
     if (argc == 2)
     {
         //Change fail count to match no of tests
-        while (test_1 < 20)
+        while (test_1 < 14)
         {
-            if (toupper(chr[test_1]) == ft_toupper(chr[test_1]))
+            if (strcmp(str[test_1], str2[test_1]) == ft_strcmp(str[test_1], str2[test_1]))
             {
                 printf("PASS:  test %d\n", test_1+1);
                 pass_counter++;
             }
             else
             {
-				printf("FAIL: Output %d , %d\n", toupper(chr[test_1]) , ft_toupper(chr[test_1]));
+				printf("FAIL: Output %d , %d\n", strcmp(str[test_1], str2[test_1]) , ft_strcmp(str[test_1], str2[test_1]));
             }
                 
             test_1++;
         }
-		
+		/*
 		while (test_2 < 9)
         {
-            if (toupper(num[test_2]) == ft_toupper(num[test_2]))
+            if (strcmp(str[test_2], str2[test_2]) == ft_strcmp(str[test_2], str2[test_2])
             {
                 printf("PASS:  test %d\n", test_2+test_1+1);
                 pass_counter++;
             }
             else
             {
-				printf("FAIL: Output %d , %d\n", toupper(num[test_2]) , ft_toupper(num[test_2]));
+				printf("FAIL: Output %d , %d\n", strcmp(str[test_2], str2[test_2]) , ft_strcmp(str[test_2], str2[test_2]));
             }
                 
             test_2++;
         }
-		
+		*/
         if (pass_counter == test_1 + test_2)
             printf("SUCCESS!");
         else

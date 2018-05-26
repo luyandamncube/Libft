@@ -21,11 +21,13 @@ int     ft_strcmp(const char *s2, const char *s1)
             >ANY time we subtract/add integers, make sure to check if you should use unsigned
     */
     int k;
-    int comp;
 
-    k = 0; 
-    while(s1[k] && s1[k] == s2[k]) //While s1 not null AND s1 = s2 (char are the same)
+    k = 0;
+    while(s1[k]) //While s1 not null AND s1 = s2 (char are the same)
+    {
+        if (s1[k] != s2[k])
+            return(s2[k]-s1[k]);
         k++;
-    comp = s2[k]-s1[k];
-    return(comp);
+    }    
+    return(s2[k]-s1[k]);
 }

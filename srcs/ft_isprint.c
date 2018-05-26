@@ -14,7 +14,8 @@
 int		ft_isprint(int c)
 {
 	//Characters between 0-31 & 127
-	if (c <= 31 || c == 127)
-		return (0);
-	return (1);
+	//isalpha || isdigit
+	if (c >= 32 && c <= 126)
+		return (c);
+	return (0);
 }
