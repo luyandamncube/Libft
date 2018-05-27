@@ -8,7 +8,8 @@
 #define KILOBYTE (1024llu)
 #define MEGABYTE (KILOBYTE * KILOBYTE)
 #define GIGABYTE (KILOBYTE * KILOBYTE * KILOBYTE)
-
+#define ASSERT_EQ_STR(X, Y)	(X) && (Y) && (X == Y) && strcmp(X,Y) == 0 ? 1 : 0
+#define ASSERT_EQ(X, Y)	(X) && (Y) && (X == Y) ? 1 : 0
 /* 
     ARRAYS FOR COMPARTIVE TESTS
     -Allows iterative input for function comparisons
@@ -40,11 +41,15 @@ char *asc[32] = {
                       "-", "-+1", "+-1", "\200123", "123\200", "  \t\n  \r\r\v\f-899",
                      "-2147483648", "2147483647"
                 };
+char *dup[5] = {
+                    "abc\0\0\0","abc\0\0\0","abc\0\0\0", "abc\0\0\0"
+                };   
 
-/* strlcat(strdup("abc\0\0\0"), "ccc", 0) == 3
-    strlcat(strdup("abc\0\0\0"), "ccc", 1) == 4
-    strlcat(strdup("abc\0\0\0"), "ccc", 6) == 6
-    strlcat(strdup("abc\0\0\0"), "ccc", 10) == 6      
+/*
+    strlcat(strdup(dup), "ccc", 0) == 3
+    strlcat(strdup(dup), "ccc", 1) == 4
+    strlcat(strdup(dup), "ccc", 6) == 6
+    strlcat(strdup(dup), "ccc", 10) == 6      
 */             
 
 char 	*ext_remove(char* mystr) 
@@ -52,7 +57,7 @@ char 	*ext_remove(char* mystr)
     char *retstr;
     char *lastdot;
     if (mystr == NULL)
-         return NULL;
+        return NULL;
     if ((retstr = malloc(strlen (mystr) + 1)) == NULL)
         return NULL;
     strcpy (retstr, mystr);
@@ -63,66 +68,65 @@ char 	*ext_remove(char* mystr)
 }
 
 int main(int argc, char **argv)
-{   
-    /* 
+{
+/* 
     MEMORY ALLOCATION AREAS FOR SRC_DST TESTS
     -Fills memory area src with the character 'A'
-    USAGE: ft_strcpy(dst, src);
+    USAGE: ft_strcpy(dst, str[k]);
     NOTE: allocate memory in main function, in C it becomes unstable if allocated globally 
- */
+    NOTE: neither src nor dst are 2D arrays, remember to use them correctly when decideing parameters
+*/
     size_t	size = MEGABYTE * 64;
-    char	*src = (size_t)malloc(size + 1);
-    char	*dst = (size_t)malloc(size + 1);
-    src[size] = 0;
+    char	*src = malloc(size + 1);
+    char	*dst = malloc(size + 1);
+    char    buf[6];
+    memset(buf, 33, 6);
     memset(src, 'A', size);
 
     int test_1 = 0;
     int test_2 = 0;
     int pass_counter = 0;
     char *ft_name = (argv[1]);    
-                                                                                                                                                                                                
+                                                                                                                                                                                              
     printf("TESTS FOR %s: \n", ext_remove(ft_name));
 	printf("==============================\n");
     if (argc == 2)
     {
-        //Change fail count to match no of tests
-        while (test_1 < 15)
+        while (test_1 < 14)
         {
-            if (strcpy(dst[test_1], src[test_1]) == ft_strcpy(dst[test_1], src[test_1]))
+            if (ASSERT_EQ(strcpy(dst, str[test_1]), strcpy(dst, str[test_1])))
             {
-                printf("PASS:  test %d\n", test_1+1);
+                printf("PASS:  test %d\n", pass_counter+1);
                 pass_counter++;
-            }
+            } 
             else
             {
-				printf("FAIL: Output %d , %d\n", strcpy(dst[test_1], src[test_1]) , ft_strcpy(dst[test_1], src[test_1]));
+				printf("FAIL: Output %d , %d\n", strcpy(dst, str[test_1]) , ft_strcpy(dst, str[test_1]));
             }
                 
             test_1++;
         }
-		/*
-		while (test_2 < 9)
+        while (test_2 < 13)
         {
-            if (strcmp(str[test_2], str2[test_2]) == ft_strcmp(str[test_2], str2[test_2])
+            if (ASSERT_EQ(strcpy(dst, str[test_2]), strcpy(dst, str[test_2])))
             {
-                printf("PASS:  test %d\n", test_2+test_1+1);
+                printf("PASS:  test %d\n", pass_counter+1);
                 pass_counter++;
             }
             else
             {
-				printf("FAIL: Output %d , %d\n", strcmp(str[test_2], str2[test_2]) , ft_strcmp(str[test_2], str2[test_2]));
+				printf("FAIL: Output %d , %d\n", strcpy(dst, str[test_2]) , ft_strcpy(dst, str[test_2]));
             }
                 
             test_2++;
         }
-		*/
         if (pass_counter == test_1 + test_2)
             printf("SUCCESS!");
         else
 		{
 			printf("==============================\n");
 			printf("COUNT: %d \n", test_1 + test_2);
-            printf("Only %d tests passed...", pass_counter);
+            printf("%d tests passed...", pass_counter);
 		}
     }
     else 
