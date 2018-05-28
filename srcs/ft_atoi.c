@@ -49,6 +49,7 @@ int	ft_atoi(const char  *nptr)
 		result = result *10 + (nptr[k] - '0');
 		k++;
 	}
-	if (k <= 10 || result <= 2147483647)
+	//Check largest integer bounds
+	if (k <= 10 || result <= 2147483647 || result >= -2147483648)
 		return(sign*result);
 }
