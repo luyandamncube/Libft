@@ -1,15 +1,21 @@
 /*
+    TEST SCRIPT FOR TESTING LIBFT FUNCTIONS
     USAGE: 
     1   sh test.sh
     2   ./test ft_name.c
 */
 #include "libft.h"
 
+/*
+    - llu: long long unsigned (%llu). 0 - +18,446,744,073,551,615
+*/
+
 #define KILOBYTE (1024llu)
 #define MEGABYTE (KILOBYTE * KILOBYTE)
 #define GIGABYTE (KILOBYTE * KILOBYTE * KILOBYTE)
 #define ASSERT_EQ_STR(X, Y)	(X) && (Y) && (X == Y) && strcmp(X,Y) == 0 ? 1 : 0
-#define ASSERT_EQ(X, Y)	(X) && (Y) && (X == Y) ? 1 : 0
+#define ASSERT_EQ(X, Y)	((X == Y) ? 1 : 0)
+#define ASSERT_IS_NULL(X) ((X == NULL) ? 1 : 0))
 /* 
     ARRAYS FOR COMPARTIVE TESTS
     -Allows iterative input for function comparisons
@@ -40,9 +46,12 @@ char *asc[32] = {
                       "  -4232", "4,5", "+", "-", "-+1", "+-1", "\200123", "123\200", "  \t\n  \r\r\v\f-899",
                      "-2147483648", "2147483647"
                 };
-char *dup[5] = {
+char *dupe[5] = {
                     "abc\0\0\0","abc\0\0\0","abc\0\0\0", "abc\0\0\0"
                 };   
+char *dupe2[5] = {
+                    "abcccc","abcccc","abcccc", "abcccc"
+                };                  
 
 /*
     strlcat(strdup(dup), "ccc", 0) == 3
@@ -78,47 +87,46 @@ int main(int argc, char **argv)
     size_t	size = MEGABYTE * 64;
     char	*src = malloc(size + 1);
     char	*dst = malloc(size + 1);
-    char    buf[6];
-    memset(buf, 33, 6);
-    memset(src, 'A', size);
-
+    memcpy(dst, dupe, 32);
+    memcpy(src, dupe, 32);
     int test_1 = 0;
     int test_2 = 0;
     int pass_counter = 0;
-    char *ft_name = (argv[1]);    
-                                                                                                                                                                                              
+    char *ft_name = (argv[1]);                                                                                                                                                                        
     printf("TESTS FOR %s: \n", ext_remove(ft_name));
 	printf("==============================\n");
     if (argc == 2)
     {
-        while (test_1 < 32)
+        while (test_1 < 6)
         {
-            if (atoi(asc[test_1]) == ft_atoi(asc[test_1]))
+            if (strcat(dupe[test_1],"ccc") == dupe2[test_1])
             {
                 printf("PASS:  test %d\n", test_1+1);
                 pass_counter++;
             } 
             else
             {
-				printf("FAIL: Output %d , %d\n", atoi(asc[test_1]) , ft_atoi(asc[test_1]));
+				printf("FAIL: Output %d %d %d\n", dst[test_1], src[test_1], chr[test_1]);
             }
                 
             test_1++;
         }
-        while (test_2 < 15)
+        /*
+        while (test_2 < 14)
         {
-            if (atoi(asc[test_2]) == ft_atoi(asc[test_2]))
+            if (ASSERT_EQ(atoi(asc[test_2]), ft_atoi(asc[test_2])))
             {
                 printf("PASS:  test %d\n", test_2+test_1+1);
                 pass_counter++;
             }
             else
             {
-				printf("FAIL: Output %d , %d\n", atoi(asc[test_2]) , ft_atoi(asc[test_1]));
+				printf("FAIL: Output %d , %d\n", atoi(str[test_2]) , ft_atoi(str[test_2]));
             }
                 
             test_2++;
         }
+        */
         if (pass_counter == test_1 + test_2)
             printf("SUCCESS!");
         else

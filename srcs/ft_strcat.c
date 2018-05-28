@@ -1,23 +1,28 @@
 #include "libft.h"
 
-char    *ft_strcat(char *dst, char *src)
+char    *ft_strcat(char *dest, char *src)
 {
     /*man page req:
-        -string concatenate
-        -Need to allocate space for src, then change size of dest to match
-        -dest MUST have enough space for result
-        -Result string MUST be null-terminated
-        -No if statement: program behavior unpredictable if dest is not big enough
-        NOTE: size_t stores size of data objects in C
-        NOTE: malloc for dest would be (char*)malloc(dest_len+src_len)
+        - concatenate two strings
+        - overwrites null-terminator at end of dst
+        - adds a terminating null byte to dest afterwards
+        - strings may not overlap
+        - UNSAFE: if dst is not large enough, behavior is unpredictable (buffer overrun)
     */
-    size_t dst_len;
-    size_t k;
+    size_t k,m;
 
-    dst_len = ft_strlen(dst);
     k = 0;
-    while (*src++) //while not NULL
-		dst[dst_len + k] = src[dst_len + k];
-    dst[dst_len + k] = '\0';
-    return (dst);
+    m = 0;
+    while (dest[k]) //while not NULL
+    {
+       k++;
+    }
+	while (src[m])
+    {
+        dest[k] = src[m];
+        k++;
+        m++;
+    }
+    dest[m+k] = '\0';
+    return (dest);
 }

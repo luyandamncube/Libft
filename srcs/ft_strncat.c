@@ -1,6 +1,6 @@
 #include "libft.h"
 
-char    *ft_strncat(char *dst, char *src, size_t n)
+char    *ft_strncat(char *dest, char *src, size_t n)
 {
     /*man page req:
         -string n concatenate
@@ -14,14 +14,14 @@ char    *ft_strncat(char *dst, char *src, size_t n)
     unsigned int k,m;
 
     k = 0;
-    m = ft_strlen(dst);
+    m = ft_strlen(dest);
     //Move to end position of dst
     while (*src++ && k < n) //while not NULL
     {
-        dst[m] = src[k];
+        dest[m] = src[k];
         k++;
         m++;
     }
-    dst[m] = '\0';
-    return (dst);
+    dest[m] = '\0';
+    return (dest);
 }

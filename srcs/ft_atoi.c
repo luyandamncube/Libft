@@ -17,7 +17,7 @@ int	ft_atoi(const char  *nptr)
 			2 - Check sign
 			3 - Check prefix zeros
 			4 - Number conversion
-			5 - CHeck largest integer bounds
+			5 - Check largest integer bounds
 	*/
 	
 	int k;

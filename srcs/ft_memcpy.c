@@ -1,25 +1,27 @@
 #include "libft.h"
 
-void    *ft_memcpy(void *dst, const void *src, size_t n)
+void    *ft_memcpy(void *dest, const void *src, size_t n)
 {
-    /*man page req:
-        -copy n bytes from memory area src to memory area dst
-        -if they overlap, behavior is undefined
-        -limit memory created to n
-        -src should have it's own memory allocated? stack for STATIC
+    /* man page req:
+        - copies n bytes from memory area src to memory area dest
+        - the memory areas may NOT overlap
+        - memory area is interpreted as unsigned char
+        - returns a apointer to dest
     */
 
    size_t k;
-   
-   k = 0;
-   //dst is not const, able to allocate memory for it
+   size_t *new_mem;
+   size_t *src_mem;
 
-   //no need to cast to void, pointer type will be safely promoted 
-   void dst_new = (void*)malloc(sizeof(void)) * n;
+   k = 0;
+   //new_mem = (size_t*)malloc(sizeof(size_t)*n+1);     //Might not be allowed to malloc here...
+   new_mem = (size_t*)dest;                             //Point dst to a newly created mem area.
+   src_mem = (size_t*)src;                              //Point to same mem area as src.
+
    while (k < n)
    {
-       dst_new[k] = src[k];
+       new_mem[k] = src_mem[k];                         //Replace values in dest with src.
        k++;
    }   
-   return (dst_new);
+   return (new_mem);
 }
