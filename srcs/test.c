@@ -34,11 +34,10 @@ char *str2[15] = {
                 };
 
 char *asc[32] = {
-                    " -sfecf", "", "+2798", "+0089", "a56", "      --s8" , "0001020304",
-                    "000000000000000110", "-153",
-                    "+132", "++876", "--132", "wert ", " 1", "42jk ", " 21", "     32 ",
-                     "\n          42 24", "1-2", "4+2", "  +442", "  -4232", "4,5", "+",
-                      "-", "-+1", "+-1", "\200123", "123\200", "  \t\n  \r\r\v\f-899",
+                    " -sfecf", " ", "+2798", "+0089", "a56", "      --s8" , "0001020304",
+                    "000000000000000110", "-153", "+132", "++876", "--132", "wert ", " 1",
+                     "42jk ", " 21", "     32 ", "\n          42 24", "1-2", "4+2", "  +442",
+                      "  -4232", "4,5", "+", "-", "-+1", "+-1", "\200123", "123\200", "  \t\n  \r\r\v\f-899",
                      "-2147483648", "2147483647"
                 };
 char *dup[5] = {
@@ -92,30 +91,30 @@ int main(int argc, char **argv)
 	printf("==============================\n");
     if (argc == 2)
     {
-        while (test_1 < 14)
+        while (test_1 < 32)
         {
-            if (ASSERT_EQ(strcpy(dst, str[test_1]), strcpy(dst, str[test_1])))
+            if (atoi(asc[test_1]) == ft_atoi(asc[test_1]))
             {
-                printf("PASS:  test %d\n", pass_counter+1);
+                printf("PASS:  test %d\n", test_1+1);
                 pass_counter++;
             } 
             else
             {
-				printf("FAIL: Output %d , %d\n", strcpy(dst, str[test_1]) , ft_strcpy(dst, str[test_1]));
+				printf("FAIL: Output %d , %d\n", atoi(asc[test_1]) , ft_atoi(asc[test_1]));
             }
                 
             test_1++;
         }
-        while (test_2 < 13)
+        while (test_2 < 15)
         {
-            if (ASSERT_EQ(strcpy(dst, str[test_2]), strcpy(dst, str[test_2])))
+            if (atoi(asc[test_2]) == ft_atoi(asc[test_2]))
             {
-                printf("PASS:  test %d\n", pass_counter+1);
+                printf("PASS:  test %d\n", test_2+test_1+1);
                 pass_counter++;
             }
             else
             {
-				printf("FAIL: Output %d , %d\n", strcpy(dst, str[test_2]) , ft_strcpy(dst, str[test_2]));
+				printf("FAIL: Output %d , %d\n", atoi(asc[test_2]) , ft_atoi(asc[test_1]));
             }
                 
             test_2++;

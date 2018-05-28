@@ -10,24 +10,44 @@
 int	ft_atoi(const char  *nptr)
 {
 	/*man page req:
-		-*nptr is the same as nullptr from C++
 		-convert string to an integer (ascii to int)
 		-atoi does not detect errors
+		ORDER: 
+			1 - Check escape characters
+			2 - Check sign
+			3 - Check prefix zeros
+			4 - Number conversion
 	*/
-	int sign;
-	int k;
-
-	sign = 1;
-	k = 0;
 	
-	//Skip Escape Characters, 32 is space, 9-13 are the escape characters
-	while ((*nptr) || (*nptr >= 9 && *nptr <= 13 ))	//(*nptr == 32 || (*nptr >= 9 && *nptr <= 13 ))
-		++nptr;
-	//Sign of integer expression
-	if (*nptr == '+' || *nptr == '-')
-		sign = (*nptr++ == '-'  ? -1 : 1); 			// sign = (*nptr == '-'  ? -1 : 1); 
-	//Is string to int conversion algorithm 		
-	while (*nptr >= '0' && *nptr <= '9') 			//(*nptr != '\0' || *nptr >= '0' ||  *nptr <= '9')
-		k = k*10 + (*nptr++ - '0');
-	return (k*sign);
+	int k;
+	int sign;
+	int result; 
+
+	k = 0;
+	result = 0;
+	sign = 1;
+	//32 == ' ', 9-13 are escape characters. skip ahead of all of these
+	while (nptr[k] == 32 || (nptr[k] >= 9 && nptr[k] <= 13)) 
+		k++;	
+	
+	//Consider expression sign. Skip ahead of sign afterwards
+	if (nptr[k] == '-' || nptr[k] == '+')
+	{
+		if (nptr[k] == '-')
+			sign = -1;
+		k++;
+	}
+	//Skip ahead of prefix zeros
+	while (nptr[k] == '0')
+	{
+		k++;
+	}
+	//Number conversion algorithm where '0' = 48 (e.g. 6 = 54 - 48 or '6' - '0')
+	while (nptr[k] != '\0' && (nptr[k] >= '0' &&  nptr[k] <= '9'))
+	{
+		result = result *10 + (nptr[k] - '0');
+		k++;
+	}
+	if (k < 19 || result <= 2147483647)
+		return(sign*result);
 }
