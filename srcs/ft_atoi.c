@@ -17,6 +17,7 @@ int	ft_atoi(const char  *nptr)
 			2 - Check sign
 			3 - Check prefix zeros
 			4 - Number conversion
+			5 - CHeck largest integer bounds
 	*/
 	
 	int k;
@@ -48,6 +49,6 @@ int	ft_atoi(const char  *nptr)
 		result = result *10 + (nptr[k] - '0');
 		k++;
 	}
-	if (k < 19 || result <= 2147483647)
+	if (k <= 10 || result <= 2147483647)
 		return(sign*result);
 }
