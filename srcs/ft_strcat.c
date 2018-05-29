@@ -14,9 +14,7 @@ char    *ft_strcat(char *dest, char *src)
     k = 0;
     m = 0;
     while (dest[k]) //while not NULL
-    {
        k++;
-    }
 	while (src[m])
     {
         dest[k] = src[m];

@@ -17,14 +17,14 @@
 /*TESTED*/int		        ft_toupper(int c);                                                  //(24/29)
 /*TESTED*/int               ft_strcmp(const char *s2, const char *s1);                          //(13/14) Change testing method
 /*TESTED*/int               ft_strncmp(const char *s2, const char *s1, size_t n);               //(13/14)
-/*TESTED*/size_t            ft_strlcat(char *dst, const char *src, size_t size);
+/*TESTED*/size_t            ft_strlcat(char *dst, const char *src, size_t size);                //Passes. Don't know what return value should be though...
 /*TESTED*/size_t	        ft_strlen(const char *s);
-/********/char              *ft_strcat(char *dest, char *src);
+/*TESTED*/char              *ft_strcat(char *dest, char *src);
 /********/char              *ft_strchr(const char *s, int c);
 /********/char	            *ft_strcpy(char *dst, char *src);
 /********/char              *ft_strdup(const char *s);
 /********/char 	            *ft_strlcpy(char *dst, char *src, size_t size);
-/********/char              *ft_strncat(char *dest, char *src, size_t n);
+/*TESTED*/char              *ft_strncat(char *dest, char *src, size_t n);
 /********/char	            *ft_strncpy(char *dst, char *src, const int n);
 /********/char              *ft_strnstr(const char *haystack, const char *needle, size_t len);
 /********/char              *ft_strchr(const char *s, int c);

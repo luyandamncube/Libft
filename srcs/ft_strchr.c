@@ -6,34 +6,46 @@ char    *ft_strchr(const char *s, int c)
         -locate char in string
         -returns a pointer to FIRST occurence of the character in the string
         -basically returns everything after and including the character
+        HOW TO RETURN A POINTER TO A SPECIFIC LOCATION OF AN ARRAY
+            1 assign a pointer to the array in memory
+            2 increment the pointer to the position you need 
         
     */
-    int k, m,flag, len;
-    char *str_new;
-   
-    k = 0;
-    m = 0;
-    flag = 0;
-    while (*s++)
-    {
-        if (s[k] == c && flag == 0)
-            flag = 1;
-        else
-            k++;
-    }
-    if (flag == 1) // if found
-    {
-        len = ft_strlen(s)-k;
-        str_new = (char*)malloc(sizeof(char)*len+1);
-        while (k < len)
-        {
-            str_new[m] = s[k];
-            m++;
-            k++;
-        }
-        str_new[m] = '\0';
-    }
-    else
-        str_new = NULL;
-    return (str_new);
+   size_t k,m;
+
+   k = 0;
+   m = 0;
+   if (*s == NULL)
+        return(NULL);
+   while (s[m])
+        m++;
+   while (*s && *s != c)
+   {
+        s++;
+        k++;
+   }
+    if (k > 0)
+        return (s);
+    if (m == k)
+        return(NULL);
+}       
+
+/*
+char	*ft_strchr(const char *s, int c)
+{
+	char	*a;
+
+	if (!s)
+		return (NULL);
+	a = (char *)s;
+	while (*a)
+	{
+		if (*a == (char)c)
+			return (a);
+		a++;
+	}
+	if (*a == (char)c)
+		return (a);
+	return (NULL);
 }
+*/

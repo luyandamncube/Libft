@@ -5,40 +5,10 @@ char    *ft_strrchr(const char *s, int c)
     /* man page req:
         -locate char in string
         -returns a pointer to LAST occurence of the character in the string
-        -
+       HOW TO RETURN A POINTER TO A SPECIFIC LOCATION OF AN ARRAY
+            1 assign a pointer to the array in memory
+            2 increment the pointer to the position you need 
               
     */
-    int k, m,flag, len;
-    char *str_new;
-   
-    k = 0;
-    m = 0;
-    flag = 0;
-    len = ft_strlen(s);
-    while (len > 0)
-    {
-        if (s[k] == c && flag == 0)
-        {
-            flag = 1;
-            k = len;
-        }
-            
-        else
-            len--;
-    }
-    if (flag == 1) // if found
-    {
-        //len = ft_strlen(s)-k;
-        str_new = (char*)malloc(sizeof(char*)*len+1);
-        while (k < len)
-        {
-            str_new[m] = s[k];
-            m++;
-            k++;
-        }
-        str_new[m] = '\0';
-    }
-    else
-        str_new = NULL;
-    return (str_new);
+
 }

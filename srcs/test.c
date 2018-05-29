@@ -43,16 +43,16 @@ char *asc[32] = {
                     " -sfecf", " ", "+2798", "+0089", "a56", "      --s8" , "0001020304",
                     "000000000000000110", "-153", "+132", "++876", "--132", "wert ", " 1",
                      "42jk ", " 21", "     32 ", "\n          42 24", "1-2", "4+2", "  +442",
-                      "  -4232", "4,5", "+", "-", "-+1", "+-1", "\200123", "123\200", "  \t\n  \r\r\v\f-899",
-                     "-2147483648", "2147483647"
+                      "  -4232", "4,5", "+", "-", "-+1", "+-1", "\200123", "123\200", 
+                      "  \t\n  \r\r\v\f-899", "-2147483648", "2147483647"
                 };
 char *dupe[5] = {
                     "abc\0\0\0","abc\0\0\0","abc\0\0\0", "abc\0\0\0"
                 };   
 char *dupe2[5] = {
                     "abcccc","abcccc","abcccc", "abcccc"
-                };                  
-
+                };     
+            
 /*
     strlcat(strdup(dup), "ccc", 0) == 3
     strlcat(strdup(dup), "ccc", 1) == 4
@@ -87,26 +87,30 @@ int main(int argc, char **argv)
     size_t	size = MEGABYTE * 64;
     char	*src = malloc(size + 1);
     char	*dst = malloc(size + 1);
-    memcpy(dst, dupe, 32);
-    memcpy(src, dupe, 32);
     int test_1 = 0;
     int test_2 = 0;
+    int count = 0;
     int pass_counter = 0;
-    char *ft_name = (argv[1]);                                                                                                                                                                        
+    char *ft_name = (argv[1]);   
+    char	buf[20];
+    bzero(buf, 10);
+    strcpy(buf, "abcdefghijklmnop");
+
+        //mt_assert(strcmp(buf, "abcabcdef") == 0);
     printf("TESTS FOR %s: \n", ext_remove(ft_name));
 	printf("==============================\n");
     if (argc == 2)
     {
         while (test_1 < 6)
         {
-            if (strcat(dupe[test_1],"ccc") == dupe2[test_1])
+            if (strchr(buf,'c') == 3)
             {
                 printf("PASS:  test %d\n", test_1+1);
                 pass_counter++;
             } 
             else
             {
-				printf("FAIL: Output %d %d %d\n", dst[test_1], src[test_1], chr[test_1]);
+				printf("FAIL: Output %d %d\n", strchr(buf,'c'), 4);
             }
                 
             test_1++;
