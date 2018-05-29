@@ -17,7 +17,7 @@ void    *memchr(const void *s, int c , size_t n)
    while(*s_mem)
    {
 	   if (s_mem[k] == c)
-	       return (s_mem);				    //HOW DO I RETURN THE POINTER FOR s[k]???
+	       return (s_mem);				    
 	   s_mem++;
    }
    return(NULL);

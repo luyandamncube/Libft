@@ -3,7 +3,7 @@
 
 #include <string.h>
 #include <stdio.h>                  //REMOVE AFTER TESTING OF FUNCTIONS
-#include <stdlib.h>
+#include <stdlib.h>                 //REMOVE AFTER TESTING OF FUNCTIONS
 #include <unistd.h>
 
                             /*PART 1 */
@@ -28,7 +28,7 @@
 /********/char	            *ft_strncpy(char *dst, char *src, const int n);
 /********/char              *ft_strnstr(const char *haystack, const char *needle, size_t len);
 /********/char              *ft_strchr(const char *s, int c);
-/*TESTED*/void              *ft_memcpy(void *dest, const void *src, size_t n);
+/********/char		        *ft_strstr(const char *haystack, const char *needle);
 /*TESTED*/void              *ft_memccpy(void *dest, const void *src, int c, size_t n);
 /********/void              *ft_memmove(void * dest, const void *src,  size_t n);               //A LOT more compliated, do research :(
 /********/void              *ft_memchr(const void *s, int c , size_t n);

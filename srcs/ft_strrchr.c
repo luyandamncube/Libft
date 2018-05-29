@@ -10,5 +10,22 @@ char    *ft_strrchr(const char *s, int c)
             2 increment the pointer to the position you need 
               
     */
+   size_t k,m;
+   char *s_mem;
 
-}
+   k = 0;
+   m = 0;
+   s_mem = (char*)s;
+   if (s_mem == NULL)
+        return(NULL);
+   while(*s)
+    k++;
+   while(k >= 0)
+   {
+	   if (s_mem[k] == c)
+	       return (s_mem);				    
+	   s_mem--;
+       k--;
+   }
+   return(NULL);
+}    

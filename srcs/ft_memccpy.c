@@ -13,14 +13,19 @@ void    *ft_memccpy(void *dst, const void *src, int c, size_t n)
    size_t k;
    size_t *dest_mem;
    size_t *src_mem;
+   char c_mem;
 
    k = 0;
+   c_mem = (char)c;
    dest_mem = dst;                          //Point to same mem area as dst.
    src_mem = src;                           //Point to same mem area as src.
-   while (k < n && src_mem[k] != c)
-    {
+   while (k < n )
+   {
         dest_mem[k] = src_mem[k];           //Replace values in dest with src (until c is found)
         k++;
+  		if (src_mem[k - 1] == c_mem)
+			return (dst);
+        dst++;
     }
     return(dest_mem);
 }

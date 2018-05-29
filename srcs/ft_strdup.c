@@ -12,7 +12,9 @@ char    *ft_strdup(const char *s)
     char *str;
     int k;
 
-    len = ft_strlen(s);
+    len = 0;
+    while(*s)
+        len++;
     k = 0;
     //+1 for null-terminator
     str = (char*)malloc(sizeof(char)*len+1);
@@ -24,6 +26,5 @@ char    *ft_strdup(const char *s)
         k++;
     }
     str[k] = '\0'; 
-    free(str);
     return (str);
 }
