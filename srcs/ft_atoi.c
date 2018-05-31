@@ -18,6 +18,7 @@ int	ft_atoi(const char  *nptr)
 			3 - Check prefix zeros
 			4 - Number conversion
 			5 - Check largest integer bounds
+		NOTE : Check ft_strtrim.c. might be better to use an ft_whitespace static function
 	*/
 	
 	int k;
