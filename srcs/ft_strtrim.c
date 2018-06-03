@@ -15,6 +15,7 @@ char				*ft_strtrim(const char *s)
             at the beginning or at the end of the string. Will be considered as whitespaces the following characters ’
              ’, ’\n’ and ’\t’. If s has no whites- paces at the beginning or at the end, the function returns a copy of s. 
             - If the allocation fails the function returns NULL.
+        WRONG: NEEDS TO BE AT BEGINNING AND END OF STRING
     */
 
    size_t len;

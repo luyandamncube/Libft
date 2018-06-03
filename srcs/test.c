@@ -7,9 +7,17 @@
 #include "libft.h"
 
 /*
-    - llu: long long unsigned (%llu). 0 - +18,446,744,073,551,615
-*/
+    HOW TO PRINT MEMORY ADDRESS
+    int i = 0;
+    char *input[64] = "Rey, Luke, Leiea : Anakin Padme";
+    char *token= strtok(input,",");
+    strok();
+    printf("%d: [%p] - %s",i,token, token);
+    printf("%d: [%p] - %s",i,token, token);
+    OUTPUT 
+        0:[0x7fff516552b0] - Rey, Luke, Leiea : Anakin Padme
 
+*/
 #define KILOBYTE (1024llu)
 #define MEGABYTE (KILOBYTE * KILOBYTE)
 #define GIGABYTE (KILOBYTE * KILOBYTE * KILOBYTE)

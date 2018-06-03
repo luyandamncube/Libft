@@ -39,7 +39,7 @@ int	ft_atoi(const char  *nptr)
 			sign = -1;
 		k++;
 	}
-	//Skip ahead of prefix zeros
+	//Skip ahead of prefix zeros 
 	while (nptr[k] == '0')
 	{
 		k++;
