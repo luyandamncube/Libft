@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lmncube <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/06/03 16:46:46 by lmncube           #+#    #+#             */
+/*   Updated: 2018/06/03 16:46:49 by lmncube          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char				*ft_strtrim(const char *s)
 {
-    /*
-        man req:
-            - Allocates (with malloc(3)) and returns a copy of the string given as argument without whitespaces 
-            at the beginning or at the end of the string. Will be considered as whitespaces the following characters ’
-             ’, ’\n’ and ’\t’. If s has no whites- paces at the beginning or at the end, the function returns a copy of s. 
-            - If the allocation fails the function returns NULL.
-        WRONG: NEEDS TO BE AT BEGINNING AND END OF STRING
-    */
+	/*
+	   man req:
+	   - Allocates (with malloc(3)) and returns a copy of the string given as argument without whitespaces 
+	   at the beginning or at the end of the string. Will be considered as whitespaces the following characters ’
+	   ’, ’\n’ and ’\t’. If s has no whites- paces at the beginning or at the end, the function returns a copy of s. 
+	   - If the allocation fails the function returns NULL.
+WRONG: NEEDS TO BE AT BEGINNING AND END OF STRING
+*/
 	int		i;
 	int		j;
 	char	*new;
