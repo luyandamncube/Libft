@@ -1,58 +1,32 @@
-###################################################################### 
-#								     								#	
-#       ██╗     ███████╗███╗   ███╗ ██████╗ ███╗   ██╗	     		#
-#  	    ██║     ██╔════╝████╗ ████║██╔═══██╗████╗  ██║	     		#
-#  	    ██║     █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║	     		#
-#       ██║     ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║	     		#
-#  	    ███████╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║	     		#
-#  	    ╚══════╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝	     		#
-#				MAKEFILE			     							#
-#	CREATED BY:	lmncube					     						#
-#	https://github.com/lmncube				     					#
-#								     								#
-###################################################################### 
-
-#############################  MACROS  ###############################
-#								     								#
-#	patsubst is a pattern matcher, where % is the wildcard	     	#
-#	$(patsubst pattern,replacement pattern,text)		     		#
-#	DEPS sets directory for header file dependancies	     		#	
-#	LDIR set directory for external libraries		     			#
-#	ODIR is the .o file temp directory			     				#
-#								     								#
-##############################  MACROS  ##############################
-
 NAME = 				libft.a
-
-FILENAMES = 		ft_ultoa.c \
-					memset.c \
-					bzero.c \
-					memmove.c \
-					memchr.c \
-					memcmp.c \
-					memcpy.c \
-					memccpy.c \
-					strlen.c \
-					strdup.c \
-					strcpy.c \
-					strncpy.c \
-					strcat.c \
-					strncat.c \
-					strlcat.c \
-					strchr.c \
-					strrchr.c \
-					strstr.c \
-					strnstr.c \
-					strcmp.c \
-					strncmp.c \
-					atoi.c \
-					isalpha.c \
-					isdigit.c \
-					isalnum.c \
-					isascii.c \
-					isprint.c \
-					toupper.c \
-					tolower.c \
+FILENAMES = 		ft_memset.c \
+					ft_bzero.c \
+					ft_memmove.c \
+					ft_memchr.c \
+					ft_memcmp.c \
+					ft_memcpy.c \
+					ft_memccpy.c \
+					ft_strlen.c \
+					ft_strdup.c \
+					ft_strcpy.c \
+					ft_strncpy.c \
+					ft_strcat.c \
+					ft_strncat.c \
+					ft_strlcat.c \
+					ft_strchr.c \
+					ft_strrchr.c \
+					ft_strstr.c \
+					ft_strnstr.c \
+					ft_strcmp.c \
+					ft_strncmp.c \
+					ft_atoi.c \
+					ft_isalpha.c \
+					ft_isdigit.c \
+					ft_isalnum.c \
+					ft_isascii.c \
+					ft_isprint.c \
+					ft_toupper.c \
+					ft_tolower.c \
 					ft_memalloc.c \
 					ft_memdel.c \
 					ft_strnew.c \
@@ -77,59 +51,26 @@ FILENAMES = 		ft_ultoa.c \
 					ft_putstr_fd.c \
 					ft_putendl_fd.c \
 					ft_putnbr_fd.c \
-					ft_lstnew.c \
-					ft_lstdelone.c \
-					ft_lstdel.c \
-					ft_lstadd.c \
-					ft_lstiter.c \
-					ft_lstmap.c \
-
-CC =				gcc
-
-CFLAGS = 			-Wall -Werror -Wextra
-HFLAGS =			-I$(HDIR)
-AFLAGS =			ar rcs
-
-HDIR =				../includes
-ODIR =				obj
-SDIR = 				srcs
-
-_DEPS =				libft.h
-DEPS =				$(patsubst %,$(HDIR)/%,$(_DEPS))	        
-_OBJ = 				$(FILENAMES:.c=.o)  		        
-OBJ = 				$(patsubst %,$(ODIR)/%,$(_OBJ))
-SRCS = 				$(patsubst %,$(SDIR)/%,$(FILENAMES))
-
-##############################  TARGETS  ############################## 
-#								      								# 
-#	Using % instead of * allows us to refer to MULTIPLE targets  	#
-#       -c flag generates object file			      	      		#
-#       -o $@ puts output in file named LEFT of :		      		#
-#       $@ is the LEFT of :				      	      				#
-#       $^ is the RIGHT of :					      				#	
-#       $< is the first item on the dependencies list	      	    #
-#								      								#
-##############################  TARGETS  ##############################
+					
+OBJ		= $(FILENAMES:.c=.o)
+CMP		= gcc #llvm-gcc
+FLAGS	= -Wall -Werror -Wextra 
 
 all: $(NAME)
 
-$(ODIR)/%.o: $(SDIR)/%.c $(DEPS)
-					$(CC) $< $(HFLAGS) $(IFLAGS) $(CFLAGS) -c -o $@  
 $(NAME): $(OBJ)
-					@echo		Object files generated!
-					@echo 		Compiling library...
-					$(AFLAGS) $^ $(HFLAGS) $(IFLAGS) $(CFLAGS) -o $@  
-					@echo		Done! Type \"make run\" to run executable
-run:
-					@echo 		Running program excecutable...
-					@./libft.a
-clean:
-					@echo 		Cleaning object files...
-					@rm -f $(OBJ)
-fclean: clean
-					@echo 		Cleaning program excecutable...
-					@rm -f $(NAME)
-					@echo		Done!
-re: 	fclean all
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
+	@echo "\033[1;31;40m -------------- FINIIIII  GG. ---------------\033[0m"
+%.o: %.c
+	$(CMP) -I. -o $@ -c $? $(FLAGS)
 
 .PHONY: clean fclean re
+
+clean:
+	rm -f $(OBJ)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
