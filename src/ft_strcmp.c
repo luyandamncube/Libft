@@ -25,14 +25,14 @@ NOTE:
 >"values in memory may be the same although the bits used to represent them might differ"
 >ANY time we subtract/add integers, make sure to check if you should use unsigned
 */
-	unsigned char	*s1v;
-	unsigned char	*s2v;
+	unsigned char	*s1_ptr;
+	unsigned char	*s2_ptr;
 	int				i;
 
-	s1v = (unsigned char*)s1;
-	s2v = (unsigned char*)s2;
+	s1_ptr = (unsigned char*)s1;
+	s2_ptr = (unsigned char*)s2;
 	i = 0;
-	while (s1[i] && s1v[i] == s2v[i])
+	while (s1[i] && s1_ptr[i] == s2_ptr[i])
 		i++;
-	return (s1v[i] - s2v[i]);
+	return (s2_ptr[i] - s1_ptr[i]);
 }

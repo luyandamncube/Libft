@@ -19,35 +19,36 @@ char    *ft_strnstr(const char *haystack, const char *needle, size_t len)
 	   -needle will be substring, haystack is string           
 	   -return haystack if needle == ''
 	   -return NULL if needle does not occur
+	   -return pointer to beginning of needle if found
+	   NOTE: naive approach, 
 	   */
 
-	size_t k, m;
-	size_t needle_len, checker;
-	//char *new_needle;
-	//new_needle = needle;
-	checker = 0;
+	int 		k;
+	int 		m;
+	int 		limit;
+	int 		need_len;
+	int			hay_len;
+
 	k = 0;
 	m = 0;
-	needle_len = ft_strlen(needle);
-	/*
-	   x   get needle length
-	   -iterate through haystack ,char by char
-	   -check if char matches first char of needle
-	   -iterate through needle to see if all chars match, add to counter
-	   -if counter == needle_len, then return needle
-	   */
-	while (haystack[k] != '\0')
+	need_len = ft_strlen(needle);
+	hay_len = ft_strlen(haystack);
+	limit = need_len + hay_len;
+	if(needle == NULL || needle[0] == '\0')
+		return(NULL);
+		
+	while(k < limit)
 	{
-		while (needle[m])
+		while(m < need_len)
 		{
-			if (haystack[k] == needle[m])
-				checker++;
+			if(needle[m] != haystack[m+k])
+				break;
 			m++;
 		}
 		k++;
 	}
-	if (checker == len)
-		return (char *)(haystack);
-	else 
-		return (NULL);
+	if (m == need_len)
+		return((char*)needle);
+	else
+		return(NULL);
 }

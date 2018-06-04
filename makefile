@@ -16,8 +16,7 @@ FILENAMES = 		ft_memset.c \
 					ft_strchr.c \
 					ft_strrchr.c \
 					ft_strstr.c \
-					ft_strnstr.c \
-					ft_strcmp.c \
+				   					ft_strcmp.c \
 					ft_strncmp.c \
 					ft_atoi.c \
 					ft_isalpha.c \
@@ -51,19 +50,30 @@ FILENAMES = 		ft_memset.c \
 					ft_putstr_fd.c \
 					ft_putendl_fd.c \
 					ft_putnbr_fd.c \
-					
-OBJ		= $(FILENAMES:.c=.o)
+#DIRS
+SDIR 	= src
+HDIR	= includes
+ODIR	= obj
+
+#COMP
 CMP		= gcc #llvm-gcc
-FLAGS	= -Wall -Werror -Wextra 
+AR		= ar rc
+
+_OBJ	= $(FILENAMES:.c=.o)
+OBJ		= $(patsubst %,$(ODIR)/%,$(_OBJ))
+CFLAGS	= -Wall -Werror -Wextra 
+HFLAGS	= -I$(HDIR)
+
+#ODIR	= obj
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rc $(NAME) $(OBJ)
+	$(AR) $(NAME) $(OBJ)
 	ranlib $(NAME)
 	@echo "\033[1;31;40m -------------- FINIIIII  GG. ---------------\033[0m"
-%.o: %.c
-	$(CMP) -I. -o $@ -c $? $(FLAGS)
+$(ODIR)/%.o: $(SDIR)/%.c
+	$(CMP) $(HFLAGS) -o $@ -c $? $(CFLAGS) 
 
 .PHONY: clean fclean re
 

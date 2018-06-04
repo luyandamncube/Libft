@@ -20,16 +20,16 @@ int		ft_strncmp(const char *s2, const char *s1, size_t n)
 	  -performs binary comparison of characters
 	  */
 
-	unsigned char	*s1v;
-	unsigned char	*s2v;
+	unsigned char	*s1_ptr;
+	unsigned char	*s2_ptr;
 	size_t			i;
 
-	s1v = (unsigned char*)s1;
-	s2v = (unsigned char*)s2;
+	s1_ptr = (unsigned char*)s1;
+	s2_ptr = (unsigned char*)s2;
 	i = 0;
-	while (s1[i] && s1v[i] == s2v[i] && i < n)
+	while (s1[i] && s1_ptr[i] == s2_ptr[i] && i < n)
 		i++;
 	if (i == n)
 		return (0);
-	return (s1v[i] - s2v[i]);
+	return (s2_ptr[i] - s1_ptr[i]);
 }

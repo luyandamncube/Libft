@@ -14,29 +14,45 @@
 
 char		*ft_strstr(const char *needle, const char *haystack)
 {
-	int				i;
-	int				find_index;
-	int				remember;
+	/* man page req:
+	   -locate a substring
+	   -needle will be substring, haystack is string           
+	   -return haystack if needle == ''
+	   -return NULL if needle does not occur
+	   -return pointer to beginning of needle if found
+	   NOTE: naive approach, logic is 
+	   		set limit = hay_len - need_len
+			while i < limit
+				while need_len
+					if need[i] != hay[i+j]
+						break;
+	   */
+	int 		k;
+	int 		m;
+	int 		limit;
+	int 		need_len;
+	int			hay_len;
 
-	find_index = 0;
-	i = 0;
-	if (needle[0] == '\0')
-		return ((char*)&haystack[0]);
-	while (haystack[i] != '\0')
+	k = 0;
+	m = 0;
+	need_len = ft_strlen(needle);
+	hay_len = ft_strlen(haystack);
+	limit = need_len + hay_len;
+	if(needle == NULL || needle[0] == '\0')
+		return(NULL);
+		
+	while(k < limit)
 	{
-		if (haystack[i] == needle[find_index])
+		while(m < need_len)
 		{
-			remember = i;
-			while (haystack[i] == needle[find_index])
-			{
-				if (needle[find_index++ + 1] == '\0')
-					return ((char*)&haystack[remember]);
-				i++;
-			}
-			find_index = 0;
-			i = remember;
+			if(needle[m] != haystack[m+k])
+				break;
+			m++;
 		}
-		i++;
+		k++;
 	}
-	return (0);
+	if (m == need_len)
+		return((char*)needle);
+	else
+		return(NULL);
 }
