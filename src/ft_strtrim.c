@@ -12,6 +12,13 @@
 
 #include "libft.h"
 
+static int			ft_iswhitespace(const char c)
+{
+	if (c == ' ' || c == '\n' || c == '\t')
+		return (1);
+	return(0);
+}
+
 char				*ft_strtrim(const char *s)
 {
 	/*
@@ -25,17 +32,23 @@ WRONG: NEEDS TO BE AT BEGINNING AND END OF STRING
 	int		i;
 	int		j;
 	char	*new;
+	//int flag_count;
 
-	if (!s)
-		return (NULL);
+
+	//flag_count = 0;
+	if (!s[0])
+		return ((char*)s);
 	i = 0;
-	while (*s == ' ' || *s == '\n' || *s == '\t')
+	//Skip past whitespace at beginning
+	while (ft_iswhitespace(*s))
 		s++;
 	i = ft_strlen(s) - 1;
 	if (i == -1)
 		return (ft_strnew(0));
-	while (!s[i] || s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
+	//Mark point at which whitespace ends
+	while (!s[i] || ft_iswhitespace(s[i]))
 		i--;
+	//Allocate new string mem
 	new = ft_strnew(++i);
 	if (!new)
 		return (NULL);
@@ -44,7 +57,14 @@ WRONG: NEEDS TO BE AT BEGINNING AND END OF STRING
 	while (i < j)
 	{
 		new[i] = s[i];
+		//if (ft_iswhitespace(new[i]))
+			//flag_count++;
 		i++;
 	}
-	return (new);
+	new[i] = '\0';
+	//printf("%d %d %lu",i , flag_count, sizeof(new));
+	//if (flag_count == sizeof(new) && new[0] != '\0') 
+		//return (ft_strnew(0));
+
+	return(new);
 }

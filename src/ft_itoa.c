@@ -45,6 +45,7 @@ char	*ft_itoa(int n)
 	io = ft_strnew(len);
 	if (io)
 	{
+		//Number conversion algorithm
 		while (len > 0)
 		{
 			io[len - 1] = (n % 10) + '0';
@@ -56,3 +57,31 @@ char	*ft_itoa(int n)
 	}
 	return (io);
 }
+
+/*
+	char	*digits;
+	char	*result;
+	int		nlen;
+	int		i;
+
+	digits = ft_strdup("0123456789");
+	if (n == -2147483648 || n == 0)
+		return (n ? ft_strdup("-2147483648") : ft_strdup("0"));
+	nlen = ft_nlen(n);
+	result = n < 0 ? ft_strnew(nlen + 1) : ft_strnew(nlen);
+	if (!result)
+		return (NULL);
+	result[nlen] = n < 0 ? '-' : 0;
+	n = n < 0 ? -n : n;
+	i = result[0] == '-' ? 1 : 0;
+	while (n)
+	{
+		result[i] = digits[n % 10];
+		n /= 10;
+		i++;
+	}
+	result = ft_strrev(result);
+	return (result);
+
+
+*/

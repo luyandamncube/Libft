@@ -21,11 +21,6 @@ void				ft_strdel(char **as)
 
 NOTE: ** as denotes a parameter that is allowed to have its value changed by the function (pass by reference)
 */
-	char *mem_ptr;
-
-	mem_ptr = *as;
-	/*if (mem_ptr == NULL)
-	  return*/
-	free(mem_ptr);
-	mem_ptr = NULL;                  //Could use ft_memdel here, same logic
+	free(*as);
+	*as = NULL;
 }

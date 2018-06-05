@@ -27,7 +27,7 @@ void				ft_striteri(char *s, void (*f)(unsigned int, char *))
 
 	s_ptr = (char*)s;
 	k = 0;
-	while(s_ptr[k])
+	while(*s_ptr)
 	{
 		f(k,s_ptr);
 		s_ptr++;

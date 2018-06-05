@@ -12,12 +12,13 @@
 
 #include "libft.h"
 
-char		*ft_strstr(const char *needle, const char *haystack)
+char		*ft_strstr(const char *haystack, const char *needle)
 {
 	/* man page req:
 	   -locate a substring
 	   -needle will be substring, haystack is string           
 	   -return haystack if needle == ''
+	   -return NULL if haystack == ''
 	   -return NULL if needle does not occur
 	   -return pointer to beginning of needle if found
 	   NOTE: naive approach, logic is 
@@ -26,33 +27,27 @@ char		*ft_strstr(const char *needle, const char *haystack)
 				while need_len
 					if need[i] != hay[i+j]
 						break;
+	   NOTE: empty string is !needle[k], NOT needle == NULL 
 	   */
-	int 		k;
-	int 		m;
-	int 		limit;
-	int 		need_len;
-	int			hay_len;
+	int		i;
+	int		j;
+	char	*hay_mem;
 
-	k = 0;
-	m = 0;
-	need_len = ft_strlen(needle);
-	hay_len = ft_strlen(haystack);
-	limit = need_len + hay_len;
-	if(needle == NULL || needle[0] == '\0')
-		return(NULL);
-		
-	while(k < limit)
+	hay_mem = (char *)haystack;
+	i = 0;
+	if (!*needle)
+		return (hay_mem);
+	while (hay_mem[i])
 	{
-		while(m < need_len)
+		j = 0;
+		while (needle[j] == hay_mem[i + j])
 		{
-			if(needle[m] != haystack[m+k])
-				break;
-			m++;
+			j++;
+			if (!needle[j])
+				return (hay_mem + i);
 		}
-		k++;
+		i++;
 	}
-	if (m == need_len)
-		return((char*)needle);
-	else
-		return(NULL);
+	return (NULL);
+
 }

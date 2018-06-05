@@ -38,5 +38,4 @@ char				*ft_strmap(const char *s, char (*f)(char))
 	}
 	new_mem[m] = '\0';
 	return(new_mem);
-
 }

@@ -20,15 +20,12 @@ void				ft_striter(char *s, void (*f)(char *))
 	   - Each character is passed by address to f to be modified if necessary.
 USAGE: f(next_pointer);
 */
-	size_t k;
 	char *s_ptr;
 
 	s_ptr = (char*)s;
-	k = 0;
-	while(s_ptr[k])
+	while(*s_ptr)
 	{
 		f(s_ptr);
 		s_ptr++;
-		k++;
 	}
 }

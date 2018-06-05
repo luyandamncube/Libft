@@ -5,50 +5,48 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmncube <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/03 16:45:44 by lmncube           #+#    #+#             */
-/*   Updated: 2018/06/03 16:45:51 by lmncube          ###   ########.fr       */
+/*   Created: 2018/06/05 10:10:10 by lmncube           #+#    #+#             */
+/*   Updated: 2018/06/05 10:12:18 by lmncube          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-//FIX ME :(
-char    *ft_strnstr(const char *haystack, const char *needle, size_t len)
+
+char		*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	/* man page req:
+    	/* man page req:
 	   -locate a substring
 	   -needle will be substring, haystack is string           
 	   -return haystack if needle == ''
+	   -return NULL if haystack == ''
 	   -return NULL if needle does not occur
 	   -return pointer to beginning of needle if found
-	   NOTE: naive approach, 
+	   NOTE: naive approach, logic is 
+	   		set limit = hay_len - need_len
+			while i < limit
+				while need_len
+					if need[i] != hay[i+j]
+						break;
+	   NOTE: empty string is !needle[k], NOT needle == NULL 
 	   */
+	int		i;
+	size_t		j;
+	char	*hay_mem;
 
-	int 		k;
-	int 		m;
-	int 		limit;
-	int 		need_len;
-	int			hay_len;
-
-	k = 0;
-	m = 0;
-	need_len = ft_strlen(needle);
-	hay_len = ft_strlen(haystack);
-	limit = need_len + hay_len;
-	if(needle == NULL || needle[0] == '\0')
-		return(NULL);
-		
-	while(k < limit)
+	hay_mem = (char *)haystack;
+	i = 0;
+	if (!*needle)
+		return (hay_mem);
+	while (hay_mem[i])
 	{
-		while(m < need_len)
+		j = 0;
+		while ((needle[j] == hay_mem[i + j]) && i + j < len)
 		{
-			if(needle[m] != haystack[m+k])
-				break;
-			m++;
+			j++;
+			if (!needle[j])
+				return (hay_mem + i);
 		}
-		k++;
+		i++;
 	}
-	if (m == need_len)
-		return((char*)needle);
-	else
-		return(NULL);
+	return (NULL);
 }

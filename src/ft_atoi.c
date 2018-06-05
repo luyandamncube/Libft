@@ -54,7 +54,6 @@ NOTE : Check ft_strtrim.c. might be better to use an ft_whitespace static functi
 		result = result *10 + (nptr[k] - '0');
 		k++;
 	}
-	//Check over long min & max
 	
 	//Check largest integer bounds
 	if (k <= 10 || result <= 2147483647 || result >= -2147483648)

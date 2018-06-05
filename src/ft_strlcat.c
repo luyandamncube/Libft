@@ -23,23 +23,13 @@ size_t  ft_strlcat(char *dst, const char *src, size_t size)
 	   2) returns buffer size: initial length of dst + length of src
 
 */
+	size_t		dst_len;
+	size_t 		src_len;
 
-	size_t k, m;
-	size_t mem_size;
-	k = 0;
-	m = 0;
-	mem_size = 0;
-	while (dst[m])
-		m++;
-	while (src[k] && k < size)
-	{
-		dst[m] = src[k];
-		m++;
-		k++;
-	}
-	dst[k-1] = '\0';
-	if (m < size)
-		return(k+m);                    //What is expected output?? Should be maybe if (m+k < size)
-	else
-		return(k+size);                 //What is expected output??
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	if (dst_len > size)
+		return(src_len + size);
+	ft_strncat(dst, src, size - (dst_len+1));
+	return(dst_len + src_len);
 }

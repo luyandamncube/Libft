@@ -28,5 +28,6 @@ void				*ft_memalloc(size_t size)
 	new_mem  = (size_t*)malloc(sizeof(size_t)*size);
 	if (new_mem == NULL)
 		return (NULL);
+	ft_bzero(new_mem,size);
 	return(new_mem);
 }
