@@ -20,10 +20,10 @@ void    *ft_memmove(void * dest, const void *src,  size_t n)
 	   - the memory areas may overlap
 	   - memory area is interpreted as unsigned char
 	   LOGIC
-	   1 account for null (len--)
+	   1 account for null char at end of dest and src (len--)
 	   2 if src < dst , copy BACKWARDS (n-- first)
 	   3 else copy FORWARDS
-	   */
+	*/
 	size_t 		k;
 
 	k = 0;

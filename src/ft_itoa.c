@@ -12,12 +12,6 @@
 
 #include "libft.h"
 
-void	test2(int *sign, int *n)
-{
-	*sign = -1;
-	*n = -*n;
-}
-
 int		ft_count(int n)
 {
 	int		count;
@@ -32,6 +26,16 @@ int		ft_count(int n)
 
 char	*ft_itoa(int n)
 {
+	/*man page req:
+	  - convert integer to an  string (int to ascii)
+	  - itoa does not detect errors
+	ORDER: [ZLMCS]
+	Z - Check if zero or largest integer
+	L - Check integer length				HELPER FUNCTION
+	M - Allocate memory (string)			HELPER FUNCTION
+	C - Number conversion
+	S - Check sign
+	*/
 	char	*io;
 	int		len;
 	int		sign;
