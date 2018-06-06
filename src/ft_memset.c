@@ -21,11 +21,11 @@ void    *ft_memset(void * s, int c, size_t n)
 	   - when dealing with void data type, remember to cast (explicit or implictit)
 	   */
 	size_t			i;
-	unsigned char	*mem;
+	char	*mem;
 
 	i = 0;
-	mem = (unsigned char *)s;
+	mem = (char *)s;
 	while (i < n)
-		mem[i++] = (unsigned char)c;
+		mem[i++] = (char)c;
 	return (s);
 }

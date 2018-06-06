@@ -14,6 +14,7 @@
 
 void		*ft_memcpy(void *dst, const void *src, size_t n)
 {
+	/*
 	unsigned char	*s;
 	unsigned char	*d;
 	size_t			i;
@@ -27,4 +28,20 @@ void		*ft_memcpy(void *dst, const void *src, size_t n)
 		i++;
 	}
 	return (dst);
+	
+*/
+	
+	size_t 		k;
+
+	k = 0;
+	if (n == 0 || dst == src)
+		return(dst);
+	while(k < n)
+	{
+		//DONT use dst++, compiler reads left to right and shifts dst THEN src instead of shifting them simoultaneously
+		*(unsigned char *)(dst + k) = *(unsigned char *)(src + k); 	
+		k++;
+	}
+	
+	return(dst);
 }

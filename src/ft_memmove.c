@@ -20,23 +20,24 @@ void    *ft_memmove(void * dest, const void *src,  size_t n)
 	   - the memory areas may overlap
 	   - memory area is interpreted as unsigned char
 	   LOGIC
-	   1 malloc area as size of len (buff, temp)
-	   2 copy s2 to temp
-	   3 copy buff to s1
-	   4 return s1
+	   1 account for null (len--)
+	   2 if src < dst , copy BACKWARDS (n-- first)
+	   3 else copy FORWARDS
 	   */
-	char	*srcc;
-	char	*dstc;
-	size_t	i;
+	size_t 		k;
 
-	i = -1;
-	srcc = (char *)src;
-	dstc = (char *)dest;
-	if (srcc < dstc)
-		while ((int)(--n) >= 0)
-			*(dstc + n) = *(srcc + n);
+	k = 0;
+	if (src < dest)
+		while (n > 0)
+		{
+			n--;
+			*(unsigned char*)(dest + n) = *(unsigned char*)(src + n);
+		}
 	else
-		while (++i < n)
-			*(dstc + i) = *(srcc + i);
-	return (dest);
+		while(k < n)
+		{	
+			*(unsigned char*)(dest+k) = *(unsigned char*)(src+k);
+			k++;
+		}
+	return(dest);
 }

@@ -14,13 +14,14 @@
 
 void	ft_putendl(char const *s)
 {
-	int i;
+	int k;
 
-	i = 0;
-	while (s[i] != '\0')
-	{
-		ft_putchar(s[i]);
-		i++;
-	}
-	ft_putchar('\n');
+	k = 0;
+	if (s)
+		while (s[k] != '\0')
+		{
+			ft_putchar(s[k]);
+			k++;
+		}
+		ft_putchar('\n');
 }

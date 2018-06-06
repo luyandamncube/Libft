@@ -31,10 +31,9 @@ char				*ft_strjoin(const char *s1, char const *s2)
    while(s2[m])
        m++;
    if (!k && !m)
-	return(NULL);			//Check this return value
-   s_new = (char*)malloc(sizeof(char)*(k+m)+1);
-   if (s_new == NULL)
-    return(NULL);
+       return(NULL);			//Check this return value
+   if (NULL == (s_new = (char*)malloc(sizeof(char)*(k+m)+1)))
+       return(NULL);
    while(s1[n])                     //REWRITE: should be strcpy
    {
 	   s_new[n] = s1[n];

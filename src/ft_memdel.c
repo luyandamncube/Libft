@@ -21,7 +21,9 @@ void				ft_memdel(void **ap)
 
 NOTE: ** ap denotes a parameter that is allowed to have its value changed by the function (pass by reference)
 */
-		free(*ap);
-		*ap = NULL;
-	
+		if(*ap)
+		{
+			free(*ap);
+			*ap = NULL;
+		}
 }

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	test1(void)
+void	ft_printzero(void)
 {
 	write (1, "0", 1);
 	return ;
@@ -26,16 +26,16 @@ void	ft_putnbr(int n)
 
 	if (n < 0)
 	{
-		temp = -n;
+		temp = -n;								//Account for negative sign
 		write(1, "-", 1);
 	}
 	else
 		temp = n;
 	if (n == 0)
-		test1();
+		ft_printzero();							//Account for if input is zero
 	exp = 1;
 	while (temp >= exp)
-		exp *= 10;
+		exp *= 10;								//Create div number that has same no of decimal spaces
 	exp /= 10;
 	while (exp >= 1)
 	{

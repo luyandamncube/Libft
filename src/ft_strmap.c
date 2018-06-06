@@ -19,6 +19,7 @@ char				*ft_strmap(const char *s, char (*f)(char))
 	   - Applies the function f to each character of the string given as argument to create a 
 	   “fresh” new string (with malloc(3)) resulting from the successive applications of f
 	   */
+	  /*
 	size_t k,m;
 	char *s_mem;
 	char *new_mem;
@@ -38,4 +39,21 @@ char				*ft_strmap(const char *s, char (*f)(char))
 	}
 	new_mem[m] = '\0';
 	return(new_mem);
+	*/
+	size_t	size;
+	size_t	i;
+	char	*out;
+	
+	if(s)
+	{
+		size = ft_strlen(s);
+		if (NULL == (out = malloc(size + 1)))
+			return (NULL);
+		i = -1;
+		while (++i < size)
+			out[i] = (*f)(s[i]);
+		out[i] = '\0';
+		return (out);
+	}
+	return(NULL);
 }

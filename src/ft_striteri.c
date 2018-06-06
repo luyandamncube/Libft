@@ -22,15 +22,12 @@ void				ft_striteri(char *s, void (*f)(unsigned int, char *))
 	   1 string to iterate through 
 	   2 the function to apply to each character of s and its index
 	   */
-	size_t k;
-	char *s_ptr;
+	size_t		k;
 
-	s_ptr = (char*)s;
 	k = 0;
-	while(*s_ptr)
-	{
-		f(k,s_ptr);
-		s_ptr++;
-		k++;
-	}
+	if(s)
+		while(*s)
+		{
+			f(k++,s++);
+		}
 }

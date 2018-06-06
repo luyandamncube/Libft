@@ -21,6 +21,7 @@ void				*ft_memalloc(size_t size)
 	   - if size = 0, returns NULL or unique pointer that can be passed to free
 	   - if mem allocation fails, returns NULL
 	   */
+	/*
 	size_t *new_mem;
 
 	if (size == 0)
@@ -29,5 +30,15 @@ void				*ft_memalloc(size_t size)
 	if (new_mem == NULL)
 		return (NULL);
 	ft_bzero(new_mem,size);
-	return(new_mem);
+	return(new_mem)*/
+	size_t 		k;
+	unsigned char 	*mem;
+
+	k = 0;
+	if (size == 0)
+		return(NULL);
+	if (NULL == (mem = malloc(size)))
+		return(NULL);
+	ft_bzero(mem,size);
+	return(mem);
 }
