@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-int		ft_strncmp(const char *s2, const char *s1, size_t n)
+int		ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	/*man page req:
 	  -compare two strings
@@ -19,17 +19,12 @@ int		ft_strncmp(const char *s2, const char *s1, size_t n)
 	  -compares the first n byes of s1 and s2
 	  -performs binary comparison of characters
 	  */
+	size_t			k;
 
-	unsigned char	*s1_ptr;
-	unsigned char	*s2_ptr;
-	size_t			i;
-
-	s1_ptr = (unsigned char*)s1;
-	s2_ptr = (unsigned char*)s2;
-	i = 0;
-	while (s1[i] && s1_ptr[i] == s2_ptr[i] && i < n)
-		i++;
-	if (i == n)
+	k = 0;
+	while (s1[k] && s1[k] == s2[k] && k < n)
+		k++;
+	if (k == n)
 		return (0);
-	return (s2_ptr[i] - s1_ptr[i]);
+	return ((unsigned char)s1[k] - (unsigned char)s2[k]);
 }

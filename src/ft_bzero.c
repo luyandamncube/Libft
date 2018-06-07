@@ -24,22 +24,12 @@ void    ft_bzero(void *s , size_t n)
 	   2 Assign zero values to each block 
 	   - memory area is interpreted as unsigned char
 	   */
-	/*
-	unsigned char	*mem;
-	size_t			i;
-
-	i = 0;
-	mem = (unsigned char*)s;
-	while (i < n)
-		mem[i++] = 0;
-	*/
 	size_t 		k;
 
 	k = 0;
 	while(k < n )
 	{
-		*(char *)s = 0;
-		s++;
+		*(unsigned char *)(s+k) = 0;
 		k++;
 	}
 }

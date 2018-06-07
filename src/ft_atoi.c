@@ -21,41 +21,29 @@ int	ft_atoi(const char  *nptr)
 	ORDER: [ESZCL]
 	E - Check escape characters				HELPER FUNCTION
 	S - Check sign
-	Z - Check prefix zeros
 	C - Number conversion
-	L - Check largest integer bounds
 */
-
-	int k;
 	int sign;
 	int result;
 
-	k = 0;
 	result = 0;
 	sign = 1;
 	//[E] Check escape characters 9-13,32	
-	while (nptr[k] == 32 || (nptr[k] >= 9 && nptr[k] <= 13)) 
-		k++;	
+	while (*nptr == 32 || (*nptr >= 9 && *nptr <= 13)) 
+		nptr++;	
 	//[s] Check sign -/+
-	if (nptr[k] == '-' || nptr[k] == '+')
+	if (*nptr == '-')
 	{
-		if (nptr[k] == '-')
-			sign = -1;
-		k++;
+		sign = -1;
+		nptr++;
 	}
-	//[Z] Check prefix zeros
-	while (nptr[k] == '0')
-	{
-		k++;
-	}
+	if (*nptr == '+')
+		nptr++;
 	//[C] Number conversion
-	while (nptr[k] != '\0' && (nptr[k] >= '0' &&  nptr[k] <= '9'))
+	while (*nptr && (*nptr >= '0' &&  *nptr <= '9'))
 	{
-		result = result *10 + (nptr[k] - '0');
-		k++;
+		result = result *10 + (*nptr - 48);
+		nptr++;
 	}
-	//[L] Check largest integer bounds
-	if (k <= 10 || result <= 2147483647 || result >= -2147483648)
-		return(sign*result);
-	return(0);
+	return(sign*result);
 }

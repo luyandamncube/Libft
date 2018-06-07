@@ -20,7 +20,7 @@ char	*ft_strncpy(char *dst, char *src, size_t n)
 	  -if size > 0, null-terminate
 NOTE: ANY time we have a whole number as a parameter, make sure to check if you should use unsigned
 */
-	unsigned int k;
+	size_t	 k;
 
 	k = 0;
 	while (src[k] && k < n)

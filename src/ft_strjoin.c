@@ -32,7 +32,7 @@ char				*ft_strjoin(const char *s1, char const *s2)
        m++;
    if (!k && !m)
        return(NULL);			//Check this return value
-   if (NULL == (s_new = (char*)malloc(sizeof(char)*(k+m)+1)))
+   if (NULL == (s_new = malloc(k + m + 1)))
        return(NULL);
    while(s1[n])                     //REWRITE: should be strcpy
    {
@@ -47,16 +47,4 @@ char				*ft_strjoin(const char *s1, char const *s2)
    }
    s_new[n] = '\0';
    return (s_new);
-   /*
-   	char	*join;
-
-	if (!(join = ft_strnew(ft_strlen(s1) + ft_strlen(s2) + 1)))
-		return (NULL);
-	if (s1)
-		ft_strcpy(join, s1);
-	if (s2)
-		ft_strcat(join, s2);
-	return (join);
-   */
-
 }

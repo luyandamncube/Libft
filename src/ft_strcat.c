@@ -21,13 +21,12 @@ char    *ft_strcat(char *dest, const char *src)
 	  - strings may not overlap
 	  - UNSAFE: if dst is not large enough, behavior is unpredictable (buffer overrun)
 	  */
-	unsigned int	i;
-	unsigned int	j;
+	int	i;
+	int	j;
 
 	j = 0;
 	i = 0;
-	while (dest[j])
-		j++;
+	j = ft_strlen(dest);
 	while (src[i])
 		dest[j++] = src[i++];
 	dest[j] = '\0';

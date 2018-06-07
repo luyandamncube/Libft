@@ -21,7 +21,7 @@ char 	*ft_strlcpy(char *dst, char *src, size_t size)
 	  -if size > 0, null-terminate
 NOTE: size_t is actuALLY an unsigned int
 */
-	size_t k;
+	size_t 		k;
 
 	k = 0;
 	if (size > 0)

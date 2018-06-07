@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int		ft_count(int n)
+int		ft_intlen(int n)
 {
 	int		count;
 
@@ -29,63 +29,39 @@ char	*ft_itoa(int n)
 	/*man page req:
 	  - convert integer to an  string (int to ascii)
 	  - itoa does not detect errors
-	ORDER: [ZLMCS]
-	Z - Check if zero or largest integer
-	L - Check integer length				HELPER FUNCTION
-	M - Allocate memory (string)			HELPER FUNCTION
-	C - Number conversion
-	S - Check sign
+		ORDER: [LZMCS]
+		Z - Check if zero or largest integer
+		L - Check integer length				HELPER FUNCTION
+		M - Allocate memory (string)			HELPER FUNCTION
+		C - Number conversion
+		S - Check sign
 	*/
-	char	*io;
+	char	*str;
 	int		len;
-	int		sign;
+	int 	neg;
 
-	sign = 1;
-	len = ft_count(n);
+	neg = n < 0 ? 1 : 0;
+	//[L] Check integer length
+	len = ft_intlen(n);
+	//[Z] Check if zero or smallest integer
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
-	if (n < 0)
-		test2(&sign, &n);
-	io = ft_strnew(len);
-	if (io)
+	
+	if (neg)	
+		n *= -1;
+	//[M] Allocate memory (string)
+	if (NULL != (str = ft_strnew(len)))
 	{
-		//Number conversion algorithm
+	//[C] Number conversion algorithm
 		while (len > 0)
 		{
-			io[len - 1] = (n % 10) + '0';
+			str[len - 1] = (n % 10) + 48;
 			n /= 10;
 			len--;
 		}
-		if (sign < 0)
-			io[0] = '-';
+	//[S] Check sign	
+		if (neg)
+			str[0] = '-';
 	}
-	return (io);
+	return (str);                            
 }
-
-/*
-	char	*digits;
-	char	*result;
-	int		nlen;
-	int		i;
-
-	digits = ft_strdup("0123456789");
-	if (n == -2147483648 || n == 0)
-		return (n ? ft_strdup("-2147483648") : ft_strdup("0"));
-	nlen = ft_nlen(n);
-	result = n < 0 ? ft_strnew(nlen + 1) : ft_strnew(nlen);
-	if (!result)
-		return (NULL);
-	result[nlen] = n < 0 ? '-' : 0;
-	n = n < 0 ? -n : n;
-	i = result[0] == '-' ? 1 : 0;
-	while (n)
-	{
-		result[i] = digits[n % 10];
-		n /= 10;
-		i++;
-	}
-	result = ft_strrev(result);
-	return (result);
-
-
-*/

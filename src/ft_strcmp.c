@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int     ft_strcmp(const char *s2, const char *s1)
+int     ft_strcmp(const char *s1, const char *s2)
 {
 	/*man page req:
 	  -compare two strings
@@ -25,14 +25,11 @@ NOTE:
 >"values in memory may be the same although the bits used to represent them might differ"
 >ANY time we subtract/add integers, make sure to check if you should use unsigned
 */
-	unsigned char	*s1_ptr;
-	unsigned char	*s2_ptr;
+
 	int				i;
 
-	s1_ptr = (unsigned char*)s1;
-	s2_ptr = (unsigned char*)s2;
 	i = 0;
-	while (s1[i] && s1_ptr[i] == s2_ptr[i])
+	while (s2[i] && s1[i] == s2[i])
 		i++;
-	return (s2_ptr[i] - s1_ptr[i]);
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

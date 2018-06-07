@@ -25,6 +25,5 @@ void		*ft_memcpy(void *dst, const void *src, size_t n)
 		*(unsigned char *)(dst + k) = *(unsigned char *)(src + k); 	
 		k++;
 	}
-	
 	return(dst);
 }

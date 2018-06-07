@@ -21,6 +21,9 @@ void				ft_strdel(char **as)
 
 NOTE: ** as denotes a parameter that is allowed to have its value changed by the function (pass by reference)
 */
-	free(*as);
-	*as = NULL;
+	if(as)
+	{
+		free(*as);
+		*as = NULL;
+	}
 }
