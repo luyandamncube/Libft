@@ -21,19 +21,14 @@ char    *ft_strrchr(const char *s, int c)
 	   1 assign a pointer to the array in memory
 	   2 increment the pointer to the position you need 
 */
-		int			i;
+	int	k;
 
-	i = 0;
-	while (s[i])
-		i++;
-	if (s[i] == (char)c)
-		return ((char*)&s[i]);					//instead of returning (s) from s++ 
-	i--;
-	while (i > -1)
+	k = (int)ft_strlen(s);
+	while (k >= 0)
 	{
-		if (s[i] == (char)c)
-			return ((char*)&s[i]);
-		i--;
+		if (s[k] == (char)c)
+			return ((char*)s + k);
+		k--;
 	}
 	return (NULL);
 }    

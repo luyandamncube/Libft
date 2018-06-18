@@ -20,11 +20,11 @@ char    *ft_strdup(const char *s)
 	  -delimit with null-terminator
 	  -return NULL if no space was allocated
 	  */
-	char			*copy;
-	int				len;
+	char	*copy;
+	int		len;
 
 	len = ft_strlen(s);
-	if (NULL == (copy = malloc(len + 1)))
+	if (NULL == (copy = malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	len = 0;
 	while (s[len])

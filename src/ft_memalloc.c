@@ -22,14 +22,12 @@ void				*ft_memalloc(size_t size)
 	   - if mem allocation fails, returns NULL
 	   */
 
-	size_t 		k;
-	unsigned char 	*mem;
+	unsigned char	*mem;
 
-	k = 0;
 	if (size == 0)
-		return(NULL);
-	if (NULL == (mem = malloc(size)))
-		return(NULL);
-	ft_bzero(mem,size);
-	return(mem);
+		return (NULL);
+	if (NULL == (mem = malloc(sizeof(size_t) * size)))
+		return (NULL);
+	ft_bzero(mem, size);
+	return (mem);
 }

@@ -19,17 +19,16 @@ char				*ft_strnew(size_t size)
 	  - each character of the string is initialized at’\0’. 
 	  - if the allocation fails the function returns NULL.
 	  */
-	char * new_str;
-	size_t k;
+	char		*new_str;
+	size_t		k;
 
 	k = 0;
-	new_str = (char *)malloc(sizeof(char)*size+1);
-	if (new_str == NULL || size == 0)
+	if (NULL == (new_str = malloc(sizeof(char) * size + 1)))
 		return (NULL);
-	while (k < (size+1))
+	while (k < (size + 1))
 	{
 		new_str[k] = '\0';
 		k++;
 	}
-	return(new_str);
+	return (new_str);
 }

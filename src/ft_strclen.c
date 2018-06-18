@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strclen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmncube <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/03 16:43:48 by lmncube           #+#    #+#             */
-/*   Updated: 2018/06/03 16:43:50 by lmncube          ###   ########.fr       */
+/*   Created: 2018/06/15 12:06:56 by lmncube           #+#    #+#             */
+/*   Updated: 2018/06/15 12:07:29 by lmncube          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char 	*ft_strlcpy(char *dst, char *src, size_t size)
+size_t		ft_strclen(const char *s, char c)
 {
-	/*man page req:
-	  -size-bounded string copying
-	  -safer, less buggy version of strncpy
-	  -takes full size of buffer, not just length
-	  -if size > 0, null-terminate
-NOTE: size_t is actuALLY an unsigned int
-*/
-	size_t 		k;
+	size_t	res;
 
-	k = 0;
-	if (size > 0)
+	res = 0;
+	if (!s || !*s)
+		return (res);
+	while (*s && *s != c)
 	{
-		while (k < size)
-		{
-			dst[k] = src[k];
-			k++;
-		}
-		dst[k] = '\0';
+		res++;
+		s++;
 	}
-	return (dst);
+	return (res);
 }

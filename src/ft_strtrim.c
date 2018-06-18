@@ -13,24 +13,19 @@
 #include "libft.h"
 #include <stdio.h>
 
-static int			ft_iswhitespace(const char c)
-{
-	if (c == ' ' || c == '\n' || c == '\t')
-		return (1);
-	return(0);
-}
-
 char				*ft_strtrim(const char *s)
 {
-	char	*out;
-	char	*last;
-4	while (*s && ft_iswhitespace(*s))
-		s++;
-	if (NULL == (out = ft_strdup(s)))
-		return(NULL);
-	last = out + ft_strlen(out) - 1;
-	while (last > out && ft_iswhitespace(*last))
-		*last-- = 0;
-	return (out);
+	char	*start;
+	char	*end;
+
+	if (!s)
+		return (NULL);
+	start = (char *)s;
+	end = ft_strchr(s, '\0') - 1;
+	while (ft_iswhitespace(*start))
+		start++;
+	while (ft_iswhitespace(*end) && end > start)
+		end--;
+	return (ft_strsub(start, 0, 1 + end - start));
 }
 

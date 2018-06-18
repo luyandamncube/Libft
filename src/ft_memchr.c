@@ -21,20 +21,6 @@ void    *ft_memchr(const void *s, int c , size_t n)
 	   1 assign a pointer to the array in memory
 	   2 increment the pointer to the position you need 
 	   */
-	  /*
-	unsigned char	*mem;
-	size_t			i;
-
-	mem = (unsigned char*)s;
-	i = 0;
-	while (i < n)
-	{
-		if (mem[i] == (unsigned char)c)
-			return ((void*)&s[i]);
-		i++;
-	}
-	return (NULL);
-	*/
 	size_t		k;
 
 	k = 0;

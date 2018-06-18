@@ -12,40 +12,6 @@
 
 #include "libft.h"
 
-static int			ft_analyzer(const char *s, char c)
-{
-	unsigned int	res;
-
-	res = 0;
-	while (s && *s)
-	{
-		while (*s && *s == c)
-			s++;
-		if (*s && *s != c)
-		{
-			while (*s && *s != c)
-				s++;
-			res++;
-		}
-	}
-	return (res);
-}
-
-size_t	ft_strclen(const char *s, char c)
-{
-	size_t	res;
-
-	res = 0;
-	if (!s || !*s)
-		return (res);
-	while (*s && *s != c)
-	{
-		res++;
-		s++;
-	}
-	return (res);
-}
-
 char				**ft_strsplit(const char *s, char c)
 {
 	/*
@@ -57,12 +23,12 @@ Example : ft_strsplit("*hello*fellow***students*", ’*’) re- turns the array 
 word_count
 word_size
 */
-	char			**res;
-	int				size;
-	int				it;
+	char	**res;
+	int		size;
+	int		it;
 
 	it = 0;
-	size = ft_analyzer(s, c);
+	size = ft_isdelimiter(s, c);
 	res = (char**)malloc(sizeof(char*) * size + 1);
 	if (!res || !s)
 		return (NULL);
@@ -77,6 +43,7 @@ word_size
 			s++;
 		it++;
 	}
+	res[it] = 0;
 	return (res);
 
 }

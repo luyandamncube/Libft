@@ -30,20 +30,20 @@ char		*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	   NOTE: empty string is !needle[k], NOT needle == NULL 
 	   */
 	int		i;
-	size_t		j;
+	size_t	j;
 	char	*hay_mem;
 
-	hay_mem = (char *)haystack;
+	hay_mem = (char *)hay;
 	i = 0;
-	if (!*needle)
+	if (!*need)
 		return (hay_mem);
 	while (hay_mem[i])
 	{
 		j = 0;
-		while ((needle[j] == hay_mem[i + j]) && i + j < len)
+		while ((need[j] == hay_mem[i + j]) && i + j < len)
 		{
 			j++;
-			if (!needle[j])
+			if (!need[j])
 				return (hay_mem + i);
 		}
 		i++;

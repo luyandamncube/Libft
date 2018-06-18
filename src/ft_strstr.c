@@ -33,21 +33,20 @@ char		*ft_strstr(const char *haystack, const char *needle)
 	int		j;
 	char	*hay_mem;
 
-	hay_mem = (char *)haystack;
+	hay_mem = (char *)hay;
 	i = 0;
-	if (!*needle)
+	if (!*need)
 		return (hay_mem);
 	while (hay_mem[i])
 	{
 		j = 0;
-		while (needle[j] == hay_mem[i + j])
+		while (need[j] == hay_mem[i + j])
 		{
 			j++;
-			if (!needle[j])
+			if (!need[j])
 				return (hay_mem + i);
 		}
 		i++;
 	}
 	return (NULL);
-
 }

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-int	ft_atoi(const char  *nptr)
+int	ft_atoi(const char  *str)
 {
 	/*man page req:
 	  -	convert string to an integer (ascii to int)
@@ -29,21 +29,18 @@ int	ft_atoi(const char  *nptr)
 	result = 0;
 	sign = 1;
 	//[E] Check escape characters 9-13,32	
-	while (*nptr == 32 || (*nptr >= 9 && *nptr <= 13)) 
-		nptr++;	
+	while (*str == 32 || (*str >= 9 && *str <= 13))
+		str++;
 	//[s] Check sign -/+
-	if (*nptr == '-')
-	{
+	if (*str == '-')
 		sign = -1;
-		nptr++;
-	}
-	if (*nptr == '+')
-		nptr++;
+	if (*str == '+' || *str == '-')
+		str++;
 	//[C] Number conversion
-	while (*nptr && (*nptr >= '0' &&  *nptr <= '9'))
+	while (*str && (*str >= '0' && *str <= '9'))
 	{
-		result = result *10 + (*nptr - 48);
-		nptr++;
+		result = result * 10 + (*str - 48);
+		str++;
 	}
-	return(sign*result);
+	return (sign * result);
 }

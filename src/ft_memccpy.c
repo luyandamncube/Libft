@@ -20,53 +20,7 @@ void    *ft_memccpy(void *dst, const void *src, int c, size_t n)
 	   -copies no more than n bytes, stopping when the character c is found
 	   -memory areas might overlap, results for this are undefined
 	   */
-	/*
-	unsigned char	*s;
-	unsigned char	*d;
-	unsigned int	i;
 
-	s = (unsigned char*)src;
-	d = (unsigned char*)dst;
-	i = 0;
-	while (i < n)
-	{
-		d[i] = s[i];
-		i++;
-		if (s[i- 1] == (unsigned char)c)
-			return ((void*)&dst[i]);
-	}
-	return (NULL);
-*/
-/*
-	size_t		k;
-	unsigned char *src_mem;
-	unsigned char *dst_mem;
-
-	k = 0;
-	src_mem = src;
-	dst_mem = dst;
-	while (k < n)
-	{
-		dst_mem[k] = src_mem[k];
-		k++;
-		if ((src_mem[i-1] == (unsigned char)c)
-			return(*dst_mem);
-		k++;
-	}
-	return(NULL);
-	*/
-/*
-	size_t	i;
-
-	i = -1;
-	while (++i < n)
-	{
-		*(char *)dst++ = *(char *)src;
-		if (*(char *)src++ == c)
-			return (dst);
-	}
-	return (NULL);
-*/
 	size_t i;
 
 	i = 0;
