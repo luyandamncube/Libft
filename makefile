@@ -15,8 +15,9 @@ FILENAMES =  ft_memset.c ft_bzero.c ft_memmove.c ft_memchr.c \
 			 ft_putnbr_fd.c ft_iswhitespace.c ft_isdelimiter.c \
 			 ft_strclen.c \
 
-SDIR	 = ../src
-ODIR	 = ../obj
+HDIR	 = ./includes
+SDIR	 = ./src
+ODIR	 = ./obj
 SRC 	 = $(addprefix $(SDIR)/, $(FILENAMES))
 OBJ	 	 = $(addprefix $(ODIR)/, $(FILENAMES:.c=.o)) 
 
@@ -25,7 +26,8 @@ OBJ	 	 = $(addprefix $(ODIR)/, $(FILENAMES:.c=.o))
 CC		 = gcc 
 AR		 = ar rc
 
-CFLAGS	 = -Wall -Werror -Wextra -I includes 
+HFLAGS   = -I $(HDIR)
+CFLAGS	 = -Wall -Werror -Wextra $(HFLAGS)
 
 all: $(NAME)
 
@@ -33,7 +35,7 @@ $(NAME): $(OBJ)
 	@$(AR) $(NAME) $(OBJ)
 	@echo "\033[1;31;40mDone! \033[0m"
 $(ODIR)/%.o: $(SDIR)/%.c
-	@$(CC) $(HFLAGS) -o $@ -c $? $(CFLAGS) 
+	@$(CC) -o $@ -c $? $(CFLAGS) 
 	
 clean:
 	@echo removing objects...

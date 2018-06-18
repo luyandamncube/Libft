@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char		*ft_strstr(const char *haystack, const char *needle)
+char		*ft_strstr(const char *hay, const char *need)
 {
 	/* man page req:
 	   -locate a substring
