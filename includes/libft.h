@@ -74,6 +74,7 @@ int					ft_iswhitespace(char const c);
 size_t				ft_strclen(const char *s, char c);
 char				**ft_strsplit(const char *s, char c);
 int					ft_isdelimiter(const char *s, char c);
+void				ft_swapmem(char **store, char *buf);
 
 typedef struct		s_list
 {
