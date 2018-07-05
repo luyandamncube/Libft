@@ -1,4 +1,9 @@
-# libft
+# wethinkcode_
+
+## libft
+
+<img src="resources/libft-finalmark.png" width="350" />
+
 libc project
 
 This project recreates C standard library functions to create a library that we base all of our work at WeThinkCode on. 
@@ -11,3 +16,15 @@ Concepts tested:
 - Pointers
 - Algorithms
 - I/O and Printing
+
+## Makefile commands
+
+Library compile using `make`
+
+`make` / `make all`    Compiles all source files into object code and then links to executable
+
+`make clean`           Removes `.o` files
+
+`make fclean`          Removes executable file
+
+`make re`              Runs `fclean` then `all` 
