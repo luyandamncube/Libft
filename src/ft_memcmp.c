@@ -28,9 +28,9 @@ int               ft_memcmp(const void *s1, const void *s2 , size_t n)
 	while (k < n)
 	{
 		cmp = *(unsigned char *)(s1 + k) - *(unsigned char *)(s2 + k);
-		if (cmp)
+		if (cmp != 0)
 			return (cmp);
-			k++;
+		k++;
 	}
 	return (0);
 }

@@ -17,11 +17,11 @@ void	ft_putendl(char const *s)
 	int k;
 
 	k = 0;
-	if (s)
+	if (s != NULL)
 		while (s[k] != '\0')
 		{
 			ft_putchar(s[k]);
 			k++;
 		}
-		ft_putchar('\n');
+	ft_putchar('\n');
 }
