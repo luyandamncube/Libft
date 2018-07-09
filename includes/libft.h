@@ -75,6 +75,7 @@ size_t				ft_strclen(const char *s, char c);
 char				**ft_strsplit(const char *s, char c);
 int					ft_isdelimiter(const char *s, char c);
 void				ft_swapmem(char **store, char *buf);
+int					ft_wordcount(const char *str);
 
 typedef struct		s_list
 {
