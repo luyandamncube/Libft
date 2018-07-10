@@ -6,7 +6,7 @@
 /*   By: lmncube <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/03 16:39:01 by lmncube           #+#    #+#             */
-/*   Updated: 2018/06/03 16:39:05 by lmncube          ###   ########.fr       */
+/*   Updated: 2018/07/10 10:23:41 by lmncube          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	*ft_itoa(int n)
 	//[L] Check integer length
 	len = ft_intlen(n);
 	//[Z] Check if zero or smallest integer
-	if (n == -2147483648)
+	if (n == MAXNEG)
 		return (ft_strdup("-2147483648"));
 	
 	if (neg)	

@@ -6,7 +6,7 @@
 /*   By: lmncube <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/04 08:21:49 by lmncube           #+#    #+#             */
-/*   Updated: 2018/06/04 08:21:50 by lmncube          ###   ########.fr       */
+/*   Updated: 2018/07/10 10:24:10 by lmncube          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_putnbr_fd(int nb, int fd)
 	if (nb < 0)
 	{
 		ft_putchar_fd('-', fd);
-		if (nb == -2147483648)
+		if (nb == MAXNEG)
 		{
 			ft_putchar_fd('2', fd);
 			nb %= 1000000000;
