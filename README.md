@@ -21,7 +21,7 @@ Concepts tested:
 
 Library compile using `make`
 
-`make` / `make all`    Compiles all source files into object code and then links to executable
+`make` / `make all`    Compiles all source files into object code and then links to library
 
 `make clean`           Removes `.o` files
 
