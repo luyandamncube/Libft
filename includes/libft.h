@@ -6,14 +6,14 @@
 /*   By: lmncube <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 11:34:03 by lmncube           #+#    #+#             */
-/*   Updated: 2018/07/10 10:19:13 by lmncube          ###   ########.fr       */
+/*   Updated: 2018/07/10 10:29:44 by lmncube          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# define MAXNEG -2147486348
-# define MAXPOS 2147483647
+# define MAXNEG -2147483648LL
+# define MAXPOS 2147483647LL
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
