@@ -35,11 +35,13 @@ $(NAME): $(OBJ)
 	@$(AR) $(NAME) $(OBJ)
 	@echo "\033[1;31;40mDone! \033[0m"
 $(ODIR)/%.o: $(SDIR)/%.c
+	@mkdir -p $(ODIR)
 	@$(CC) -o $@ -c $? $(CFLAGS) 
 	
 clean:
 	@echo removing objects...
 	@rm -f $(OBJ)
+	@rm -rf $(ODIR)
 	@echo Done! 
 fclean: clean
 	@echo removing library...
