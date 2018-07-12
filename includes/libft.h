@@ -17,6 +17,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "get_next_line.h"
 
 int					ft_atoi(const char *nptr);
 int					ft_isalnum(int c);
