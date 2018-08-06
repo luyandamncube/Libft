@@ -1,4 +1,4 @@
-# wethinkcode_
+# wethinkcode_ Johannesburg
 
 ![wethinkcode_ logo](resources/wtc.gif)
 
