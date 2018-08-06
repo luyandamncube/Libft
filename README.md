@@ -1,10 +1,10 @@
 # wethinkcode_
 
-![wethinkcode_ logo] (resources/wtc.gif)
+![wethinkcode_ logo](resources/wtc.gif)
 
 ## libft
 
-![final mark] (resources/libft-finalmark.png)
+![final mark](resources/libft-finalmark.png)
 
 libc project
 
