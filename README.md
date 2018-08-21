@@ -1,8 +1,10 @@
-# wethinkcode_
+# wethinkcode_ Johannesburg
+
+![wethinkcode_ logo](resources/wtc.gif)
 
 ## libft
 
-<img src="resources/libft-finalmark.png" width="350" />
+![final mark](resources/libft-finalmark.png)
 
 libc project
 
