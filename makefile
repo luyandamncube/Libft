@@ -34,7 +34,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(AR) $(NAME) $(OBJ)
-	@echo "\033[1;31;40mDone! \033[0m"
+	@echo "\033[1;32;40mDone! \033[0m"
 $(ODIR)/%.o: $(SDIR)/%.c
 	@mkdir -p $(ODIR)
 	@$(CC) -o $@ -c $? $(CFLAGS) 
