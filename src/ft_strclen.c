@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   score_gen.c                                        :+:      :+:    :+:   */
+/*   ft_strclen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmncube <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/08/20 11:14:23 by lmncube           #+#    #+#             */
-/*   Updated: 2018/08/22 14:35:42 by lmncube          ###   ########.fr       */
+/*   Created: 2018/06/15 12:06:56 by lmncube           #+#    #+#             */
+/*   Updated: 2018/06/15 12:07:29 by lmncube          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-int		abs_(int a, int b)
+size_t		ft_strclen(const char *s, char c)
 {
-	if ((a - b) < 0)
-		return (b - a);
-	else
-		return (a - b);
-}
+	size_t	res;
 
-int		score_gen(int x, int y, t_m *board)
-{
-	int	x_cord;
-	int	y_cord;
-	int	score;
-
-	score = 0;
-	x_cord = board->x / 2;
-	y_cord = board->y / 2;
-	score = 2000 - (abs_(x, x_cord) + abs_(y, y_cord));
-	return (score);
+	res = 0;
+	if (!s || !*s)
+		return (res);
+	while (*s && *s != c)
+	{
+		res++;
+		s++;
+	}
+	return (res);
 }

@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_object.c                                     :+:      :+:    :+:   */
+/*   ft_wordcount.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmncube <lmncube@42.fr>                    +#+  +:+       +#+        */
+/*   By: lmncube <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/19 14:44:23 by lmncube           #+#    #+#             */
-/*   Updated: 2018/08/21 12:20:53 by lmncube          ###   ########.fr       */
+/*   Created: 2018/07/10 09:48:04 by lmncube           #+#    #+#             */
+/*   Updated: 2018/07/10 09:51:09 by lmncube          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-void	print_object(t_m *object)
+int		ft_wordcount(const char *str)
 {
-	int k;
+	int		count;
+	int		k;
 
+	count = 0;
 	k = 0;
-	while (k < object->x)
+	while (str[k])
 	{
-		ft_putstr(object->grid[k]);
-		ft_putstr("\n");
+		if (!ft_iswhitespace(str[k]) && ((ft_iswhitespace(str[k] + 1)) \
+			|| str[k] == '\0'))
+			count++;
 		k++;
 	}
+	return (count);
 }
