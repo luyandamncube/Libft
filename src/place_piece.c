@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memdel.c                                        :+:      :+:    :+:   */
+/*   place_piece.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmncube <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/03 16:39:57 by lmncube           #+#    #+#             */
-/*   Updated: 2018/06/03 16:40:00 by lmncube          ###   ########.fr       */
+/*   Created: 2018/08/20 11:18:04 by lmncube           #+#    #+#             */
+/*   Updated: 2018/08/21 12:22:19 by lmncube          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "filler.h"
 
-void				ft_memdel(void **ap)
+void	place_piece(int x, int y, t_m *piece, t_m *board)
 {
-	/*
-	   man page req:
-	   - Takes as a parameter the address of a memory area that needs
-	   to be freed with free(3), then puts the pointer to NULL
+	int	k[4];
 
-NOTE: ** ap denotes a parameter that is allowed to have its value changed by the function (pass by reference)
-*/
-		if(ap)
+	k[0] = 0;
+	k[2] = x;
+	while (k[0] < piece->x)
+	{
+		k[1] = 0;
+		k[3] = y;
+		while (k[1] < piece->y)
 		{
-			free(*ap);
-			*ap = NULL;
+			if (piece->grid[k[0]][k[1]] == '*')
+				board->grid[k[2]][k[3]] = board->token;
+			k[1]++;
+			k[3]++;
 		}
+		k[0]++;
+		k[2]++;
+	}
 }

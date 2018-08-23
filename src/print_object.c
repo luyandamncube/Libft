@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   print_object.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmncube <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: lmncube <lmncube@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/17 13:14:06 by lmncube           #+#    #+#             */
-/*   Updated: 2018/05/17 13:18:15 by lmncube          ###   ########.fr       */
+/*   Created: 2018/09/19 14:44:23 by lmncube           #+#    #+#             */
+/*   Updated: 2018/08/21 12:20:53 by lmncube          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "filler.h"
 
-int		ft_isdigit(int c)
+void	print_object(t_m *object)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	int k;
+
+	k = 0;
+	while (k < object->x)
+	{
+		ft_putstr(object->grid[k]);
+		ft_putstr("\n");
+		k++;
+	}
 }

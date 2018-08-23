@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   print_point.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmncube <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/03 16:42:19 by lmncube           #+#    #+#             */
-/*   Updated: 2018/06/03 16:42:21 by lmncube          ###   ########.fr       */
+/*   Created: 2018/08/20 14:32:00 by lmncube           #+#    #+#             */
+/*   Updated: 2018/08/21 12:22:36 by lmncube          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "filler.h"
 
-char	*ft_strcpy(char *dst, const char *src)
+void	print_point(t_p *point)
 {
-	int k;
-
-	k = 0;
-	while (src[k])
-	{
-		dst[k] = src[k];
-		k++;
-	}
-	dst[k] = '\0';
-	return (dst);
-}	
+	ft_putstr_fd(ft_itoa(point->x), 1);
+	ft_putstr_fd(" ", 1);
+	ft_putstr_fd(ft_itoa(point->y), 1);
+	ft_putstr_fd("\n", 1);
+}
