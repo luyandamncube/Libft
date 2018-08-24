@@ -6,7 +6,7 @@
 /*   By: lmncube <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/24 14:57:07 by lmncube           #+#    #+#             */
-/*   Updated: 2018/08/24 15:25:16 by lmncube          ###   ########.fr       */
+/*   Updated: 2018/08/24 16:45:58 by lmncube          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int		ft_isnum(char *str)
 	int		k;
 
 	k = 0;
+	if (str[k] == '-')
+		k++;
 	while (str[k])
 	{
 		if (!ft_isdigit(str[k]))
