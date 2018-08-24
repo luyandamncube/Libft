@@ -6,7 +6,7 @@
 /*   By: lmncube <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/11 11:34:03 by lmncube           #+#    #+#             */
-/*   Updated: 2018/07/10 10:29:44 by lmncube          ###   ########.fr       */
+/*   Updated: 2018/08/24 15:01:05 by lmncube          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int					ft_isalpha(int c);
 int					ft_isascii(int c);
 int					ft_isdigit(int c);
 int					ft_isprint(int c);
+int					ft_isnum(char *str);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
 int					ft_strcmp(const char *s1, const char *s2);
