@@ -32,7 +32,7 @@ char	*ft_itoa(int n)
 
 	neg = n < 0 ? 1 : 0;
 	len = ft_intlen(n);
-	if (n == -2147483648)
+	if (n == MAXNEG)
 		return (ft_strdup("-2147483648"));
 	if (neg)
 		n *= -1;

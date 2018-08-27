@@ -22,7 +22,7 @@ void	ft_putnbr_fd(int nb, int fd)
 	if (nb < 0)
 	{
 		ft_putchar_fd('-', fd);
-		if (nb == -2147483648)
+		if (nb == MAXNEG)
 		{
 			ft_putchar_fd('2', fd);
 			nb %= 1000000000;
