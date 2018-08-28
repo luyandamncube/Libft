@@ -79,7 +79,7 @@ char				**ft_strsplit(const char *s, char c);
 int					ft_isdelimiter(const char *s, char c);
 void				ft_swapmem(char **store, char *buf);
 int					ft_wordcount(const char *str);
-
+void				ft_arrswap(int *arr, int i, int j);
 typedef struct		s_list
 {
 	void			*content;
