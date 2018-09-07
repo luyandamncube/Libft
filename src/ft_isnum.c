@@ -6,7 +6,7 @@
 /*   By: lmncube <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/24 14:57:07 by lmncube           #+#    #+#             */
-/*   Updated: 2018/09/06 11:32:35 by lmncube          ###   ########.fr       */
+/*   Updated: 2018/09/07 15:30:43 by lmncube          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	ft_isint(char *in)
 	return (1);
 }
 
-int		ft_isnum(char *str)
+int			ft_isnum(char *str)
 {
 	int		k;
 

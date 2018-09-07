@@ -6,34 +6,37 @@
 /*   By: lmncube <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/03 16:46:05 by lmncube           #+#    #+#             */
-/*   Updated: 2018/06/15 11:57:55 by lmncube          ###   ########.fr       */
+/*   Updated: 2018/09/07 15:27:45 by lmncube          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		**ft_strsplit(const char *s, char c)
+char		**ft_strsplit(const char *str, char c)
 {
-	char	**res;
-	int		size;
-	int		it;
+	char	**split;
+	int		k;
+	int		m;
 
-	it = 0;
-	size = ft_isdelimiter(s, c);
-	res = (char**)malloc(sizeof(char*) * size + 1);
-	if (!res || !s)
-		return (NULL);
-	while (it < size)
+	k = 0;
+	m = 0;
+	split = (char **)malloc(sizeof(char*) * 256);
+	while (*str == c)
+		str++;
+	while (*str)
 	{
-		while (*s && *s == c)
-			s++;
-		res[it] = ft_strsub(s, 0, ft_strclen(s, c));
-		if (!res[it])
-			return (NULL);
-		while (*s && *s != c)
-			s++;
-		it++;
+		m = 0;
+		split[k] = (char*)malloc(sizeof(char) * 4096);
+		while (*str != c && *str)
+		{
+			split[k][m++] = *str;
+			str++;
+		}
+		while (*str == c)
+			str++;
+		split[k][m] = '\0';
+		k++;
 	}
-	res[it] = 0;
-	return (res);
+	split[k] = NULL;
+	return (split);
 }

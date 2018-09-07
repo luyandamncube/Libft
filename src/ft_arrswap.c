@@ -6,15 +6,15 @@
 /*   By: lmncube <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/03 16:46:46 by lmncube           #+#    #+#             */
-/*   Updated: 2018/06/13 09:16:41 by lmncube          ###   ########.fr       */
+/*   Updated: 2018/09/07 15:29:49 by lmncube          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void    ft_arrswap(int *arr, int i, int j)
+void	ft_arrswap(int *arr, int i, int j)
 {
-    int temp;
+	int		temp;
 
-    temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
+	temp = arr[i];
+	arr[i] = arr[j];
+	arr[j] = temp;
 }
