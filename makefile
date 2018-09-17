@@ -16,6 +16,7 @@ FILENAMES =  ft_memset.c ft_bzero.c ft_memmove.c ft_memchr.c \
 			 ft_strclen.c ft_swapmem.c ft_wordcount.c get_next_line.c \
 			 ft_lstnew.c ft_lstmap.c ft_lstdelone.c ft_lstdel.c \
 			 ft_lstadd.c ft_lstiter.c ft_isnum.c ft_arrswap.c \
+			 ft_pop.c ft_push.c 
 
 HDIR	 = ./includes
 SDIR	 = ./src
