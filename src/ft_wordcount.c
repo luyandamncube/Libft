@@ -6,7 +6,7 @@
 /*   By: lmncube <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/10 09:48:04 by lmncube           #+#    #+#             */
-/*   Updated: 2018/07/10 09:51:09 by lmncube          ###   ########.fr       */
+/*   Updated: 2018/09/19 14:07:54 by lmncube          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,20 @@
 int		ft_wordcount(const char *str)
 {
 	int		count;
-	int		k;
+	int		i;
+	int		len;
+	char	last;
 
 	count = 0;
-	k = 0;
-	while (str[k])
+	i = -1;
+	len = ft_strlen(str);
+	if (len > 0)
+		last = str[0];
+	while (++i < len)
 	{
-		if (!ft_iswhitespace(str[k]) && ((ft_iswhitespace(str[k] + 1)) \
-			|| str[k] == '\0'))
+		if ((str[i] == ' ' || str[i] == '\0') && last != ' ')
 			count++;
-		k++;
+		last = str[i];
 	}
 	return (count);
 }
